@@ -1,0 +1,17 @@
+﻿@using Datis.Models
+<article class="col-md-9 newsletter">
+    <h3>آخرین اخبار</h3>
+    <div class="news-wrapper">
+        @foreach (NewsVM news in ViewBag.LastNews)
+        {
+            <article class="col-sm-4">
+                <a href="@Url.Action("Details", "News", new { Id = news.Id })">
+                    <img src="~/@news.Image" alt="">
+                    <h6>@news.Title</h6>
+                    <p>@news.Description</p>
+                </a>
+            </article>
+        }
+    </div>
+
+</article>

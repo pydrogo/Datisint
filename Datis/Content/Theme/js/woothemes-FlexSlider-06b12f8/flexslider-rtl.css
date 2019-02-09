@@ -1,0 +1,73 @@
+/*
+ * jQuery FlexSlider v2.0
+ * http://www.woothemes.com/flexslider/
+ *
+ * Copyright 2012 WooThemes
+ * Free to use under the GPLv2 license.
+ * http://www.gnu.org/licenses/gpl-2.0.html
+ *
+ * Contributing author: Tyler Smith (@mbmufffin)
+ */
+/* Browser Resets */
+
+/* FlexSlider Necessary Styles
+*********************************/
+
+/* Hide the slides before the JS is loaded. Avoids image jumping */
+
+/* Clearfix for the .slides element */
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+
+/* FlexSlider Default Theme
+*********************************/
+
+.flexslider{
+direction:ltr;
+}
+.carousel li {
+	margin-left: 5px;
+	margin-right: auto;
+}
+
+/* Direction Nav */
+
+.flex-direction-nav .flex-next {
+	left: 0px;
+	right: auto;
+}
+
+.flex-direction-nav .flex-prev {
+	right: 0px;
+	left: auto;
+}
+
+.flexslider:hover .flex-next {
+	left: 0px;
+	right: auto;
+}
+
+.flexslider:hover .flex-prev {
+	right: 0px;
+	left: auto;
+}
+
+/* Control Nav */
+
+.flex-control-thumbs li {
+	float: right;
+}
+
+@media screen and (max-width: 860px) {
+
+/* Control Nav */
+
+.flex-control-thumbs li {
+	float: right;
+}
+
+}
+
+

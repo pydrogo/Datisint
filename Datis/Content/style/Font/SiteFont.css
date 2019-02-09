@@ -1,0 +1,15 @@
+﻿@font-face {
+    font-family: "BaharFont";
+    src: url("BYekan.eot");
+    src: local("‚ò∫"),url("BYekan.woff") format("woff"),url("BYekan.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "BaharFont";
+    src: url("BYekan.eot");
+    src: local("‚ò∫"),url("BYekan.woff") format("woff"),url("BYekan.ttf") format("truetype");
+    font-weight: bold;
+    font-style: normal;
+}

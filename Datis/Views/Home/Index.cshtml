@@ -1,0 +1,296 @@
+﻿@using Datis.Models
+@{
+    ViewBag.Title = "داتیس, دوربین مداربسته ,مانیتور صنعتی LG,ویدئو وال LG";
+}
+@section styles{
+
+    <link href="~/Content/shop/css/owl.carousel.css" rel="stylesheet" />
+    <link href="~/Content/shop/css/owl.transitions.css" rel="stylesheet" />
+    <style>
+        .social-link i:hover {
+            color: #ffffff;
+        }
+    </style>
+}
+
+@section header{
+    <section id="slider_wrapper" class="slider_wrapper">
+        <div id="main_flexslider" class="flexslider">
+            <ul class="slides">
+                @foreach (var image in (List<ImageVM>)ViewBag.Slides)
+                {
+                    <li class="item">
+                        <a href="@image.TitleOrUrl">
+                            <img src="~/@image.Path" />
+                        </a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </section>
+}
+
+<!-- <div class="container triangles-of-section">
+    <div class="triangle-up-left"></div>
+    <div class="square-left"></div>
+    <div class="triangle-up-right"></div>
+    <div class="square-right"></div>
+</div> -->
+<section class="features_teasers_wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="feature_teaser col-sm-2 col-md-2">
+                <img alt="responsive" src="~/Content/Theme/images/icon-LGIndustrialMonitor.png">
+                <a href="@Url.Action("Index", "Category", new { Id = 99, CategoryTitle = "مانیتور صنعتی LG" })">
+                    <h3>مانیتور صنعتی LG</h3>
+                </a>
+                <p>
+                    اتاق مانيتورينگ
+                    اطلاع رسانی هوشمند
+                    راهكارهای Signage
+                    راهكارهای آموزشی
+                    راهكارهای صنعتی
+                </p>
+            </div>
+            <div class="feature_teaser col-sm-2 col-md-2">
+                <img alt="responsive" src="~/Content/Theme/images/icon-LGCommercialMonitor.png">
+                <a href="@Url.Action("Index", "Brand", new { Id = 8, BrandTitle="LG" })">
+                    <h3>نمايشگر تجاري LG</h3>
+                </a>
+                <p>
+                    تبليغات هوشمند
+                    تبليغات بدون مرز
+                    راهكارهاي Video Wall
+                    راهكارهای تجاری
+                    راهكارهای فروشگاهی
+                </p>
+            </div>
+            <div class="feature_teaser col-sm-2 col-md-2">
+                <img alt="responsive" src="~/Content/Theme/images/icon-IPCCTV.png">
+                <a href="@Url.Action("Index", "Category", new { Id = 16, CategoryTitle = "دوربين تحت شبكه" })">
+                    <h3>دوربين تحت شبكه</h3>
+                </a>
+                <p>
+                    دوربين‌های IP
+                    دوربين‌های مگاپيكسلی
+                    دوربين‌های نظارتی
+                    راهكارهای مديريتی
+                    راهكارهای مانيتورينگ
+                </p>
+            </div>
+            <div class="feature_teaser col-sm-2 col-md-2">
+                <img alt="responsive" src="~/Content/Theme/images/icon-AHDCCTV.png">
+                <a href="@Url.Action("Index", "Category", new { Id = 24, CategoryTitle = "دوربين AHD" })">
+                    <h3>دوربين AHD</h3>
+                </a>
+                <p>
+                    دوربين‌های مگاپيكسلی
+                    بالاترین كيفيت با كمترين هزينه
+                    انتقال تصوير پرسرعت
+                    دوربين‌های هوشمند
+                    راهكارهای مداربسته
+                </p>
+            </div>
+            <div class="feature_teaser col-sm-2 col-md-2">
+                <img alt="responsive" src="~/Content/Theme/images/icon-BritonCCTV.png">
+                <a href="@Url.Action("Index", "Brand", new { Id = 11, BrandTitle = "دوربين مداربسته BRITON" })">
+                    <h3>دوربين مداربسته BRITON</h3>
+                </a>
+                <p>
+                    بهترين كيفيت
+                    خدمات پس از فروش مطمن
+                    به‌روزترين تكنولوژی
+                    تيم R&D
+                    پوشش گسترده در سراسر کشور
+                </p>
+            </div>
+            <div class="feature_teaser col-sm-2 col-md-2">
+                <img alt="responsive" src="~/Content/Theme/images/icon-Solution.png">
+                <a href="@Url.Action("Index","Solution")"><h3>راهكارها</h3></a>
+                <p>
+                    راهكارهای مركز كنترل
+                    راهكارهای بانكی
+                    راهكارهای بيمارستانی
+                    راهكارهای نظامی
+                    راهكارهای IPTV
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="call_to_action dark_section">
+    <div class="container">
+        <h3>ما را در <strong>شبکه های اجتماعی</strong> دنبال کنید</h3>
+        <div class="row" style="margin-top: 10px">
+            <div class="col-md-3">
+                <a class="social-link" href="https://telegram.me/datisint_com" target="_blank">
+
+                    <p style="font-weight: 300;font-size: 28px;line-height: 40px;">تلگرام داتیس</p>
+                    <i class="fa fa-telegram fa-3x" aria-hidden="true"></i>
+
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a class="social-link" href="http://www.instagram.com/datisint" target="_blank">
+
+                    <p style="font-weight: 300;font-size: 28px;line-height: 40px;">اینستاگرام داتیس</p>
+                    <i class="fa fa-instagram fa-3x" aria-hidden="true"></i>
+
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a class="social-link" href="https://telegram.me/lgmonitorsignage" target="_blank">
+
+                    <p style="font-weight: 300;font-size: 28px;line-height: 40px;">تلگرام مانیتورهای LG</p>
+                    <i class="fa fa-telegram fa-3x" aria-hidden="true"></i>
+
+                </a>
+            </div>
+            <div class="col-md-3">
+                <a class="social-link" href="http://www.aparat.com/DATISINT" target="_blank">
+
+                    <p style="font-weight: 300;font-size: 28px;line-height: 40px;">آپارات داتیس</p>
+                    <img src="~/Content/images/aparat_icon_color_black_128.png" style="width: 56px;margin-top: -7px;" />
+
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portfolio_teasers_wrapper">
+    <!-- <div class="container triangles-of-section">
+        <div class="triangle-up-left"></div>
+        <div class="square-left"></div>
+        <div class="triangle-up-right"></div>
+        <div class="square-right"></div>
+    </div> -->
+    <div class="container">
+        <h2 class="section_header fancy centered">درباره داتیس<small>و خدماتی که ما ارائه میدهیم</small></h2>
+        <div class="portfolio_strict row">
+            <div class="col-sm-4 col-md-4">
+                <div class="portfolio_item wow fadeInUp">
+                    <a href="@Url.Action("Index","Solution")">
+                        <figure class="solution">
+                            <figcaption>
+                                <div class="portfolio_description">
+                                    <h3>راهکار های داتیس</h3>
+                                    <span class="cross"></span>
+                                    <p>مشاهده</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="portfolio_item wow fadeInUp">
+                    <a href="@Url.Action("Index", "AboutUs")">
+                        <figure class="aboutus">
+                            <figcaption>
+                                <div class="portfolio_description">
+                                    <h3>درباره داتیس</h3>
+                                    <span class="cross"></span>
+                                    <p>مشاهده</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-4 col-md-4">
+                <div class="portfolio_item wow fadeInUp">
+                    <a href="@Url.Action("Index", "Projects")">
+                        <figure class="projects">
+                            <figcaption>
+                                <div class="portfolio_description">
+                                    <h3>پروژه ها</h3>
+                                    <span class="cross"></span>
+                                    <p>مشاهده</p>
+                                </div>
+                            </figcaption>
+                        </figure>
+                    </a>
+                </div>
+            </div>
+        </div>
+        @*<div class="centered_button"><a class="btn btn-primary" href="portfolio.html">نمونه های دیگر</a></div>*@
+    </div>
+    <div class="clients_section wow fadeInUp">
+        <div class="container">
+            <h2 class="section_header elegant centered">برندهای داتیس <small>بهترین برندهای دنیا</small></h2>
+            <div class="clients_list">
+                <a href="@Url.Action("Index", "Brand", new { Id = 8, BrandTitle="LG" })">
+                    <img src="~/Content/Theme/images/clients/Logo-1.png" alt="client">
+                </a>
+                <a href="@Url.Action("Index", "Brand", new { Id = 11, BrandTitle = "Briton" })">
+                    <img src="~/Content/Theme/images/clients/Logo-2.png" alt="client">
+                </a>
+                <a href="@Url.Action("Index", "Brand", new { Id = 9, BrandTitle = "D-max" })">
+                    <img src="~/Content/Theme/images/clients/Logo-3.png" alt="client">
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="clients_section wow fadeInUp">
+    <div class="container">
+        <h3 class="section_header elegant centered">آخرین تکنولوژی ها<small>ارائه شده توسط داتیس</small></h3>
+        <article class="row newsletter">
+            <div class="tech-wrapper">
+                @foreach (ArticleVM item in ViewBag.Technologies)
+                {
+                    <article style="width: 100%" class="item col-sm-4">
+                        <a href="@Url.Action("Details", "Technology", new { Id = item.Id })">
+                            <img src="~/@item.Image200" alt="">
+                            <h6 style="text-align: center;">@item.Title</h6>
+                        </a>
+                    </article>
+                }
+            </div>
+
+        </article>
+    </div>
+</section>
+<section class="twitter_feed_wrapper skincolored_section">
+    <div class="container">
+        <div class="row">
+            <div class="twitter_feed_icon wow fadeInDown"><a href=""><i class="fa fa-handshake-o"></i></a></div>
+            <div id="customers" class="owl-carousel">
+                @foreach (var image in (List<ImageVM>)ViewBag.CustomersLogo)
+                {
+                    <div class="item text-center">
+                        <a href="@image.TitleOrUrl">
+                            <img src="~/@image.Path" />
+                        </a>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+    </div>
+</section>
+@section scripts{
+    <!--The Theme Required Js -->
+    <script type="text/javascript" src="~/Content/Theme/js/cleanstart_theme.js"></script>
+    <script src="~/Content/shop/js/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $('#customers').owlCarousel({
+            items: 4,
+            autoPlay: 3000,
+            lazyLoad: true,
+            navigation: false,
+            //navigationText: ['<i class="fa fa-angle-left"></i>', '<i class="fa fa-angle-right"></i>'],
+            pagination: false
+        });
+        $('.tech-wrapper').owlCarousel({
+            items: 4,
+            autoPlay: 2000,
+            lazyLoad: true,
+            navigation: true,
+            navigationText: '',
+            pagination: true
+        });
+
+    </script>
+}

@@ -1,0 +1,267 @@
+﻿@model List<Datis.Models.TopMenuVM>
+<header>
+    <div class="container-full" >
+
+        <div class="container">
+            <div class="logo" style="width:130px"><a class="brand" href="@Url.Action("Index","Home")"> <img src="~/Content/Theme/images/logo-n.png" alt=""> <span class="logo_title"></span></a></div>
+            <nav class="navbar HingeUpToDown" role="navigation">
+                <div class="container-fluid">
+
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#MegaNavbar">
+                            <span class="sr-only"></span>
+                            <span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="#"></a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="MegaNavbar">
+                        <ul class="nav navbar-nav navbar-left" style="margin-top:10px;">
+
+                            <li class="dropdown-wide">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-search"></i>&nbsp;<span class="hidden-md hidden-sm"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li style="position: relative; text-align: center; vertical-align: top; padding: 7px 7px 7px 7px; border: 3px solid transparent; margin-bottom: 15px;" class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                                        <form role="form">
+                                            <input type="text" class="form-control" autocomplete="off" id="searchPhrase" placeholder="جستجو">
+                                        </form>
+                                        <div class="searchToBind" style="display: none">
+                                            <div style=" margin-top: 10px;" class="row" data-bind="foreach : $data">
+                                                <div class="col-xs-12 col-sm-12 col-md-4 col-lg-2">
+                                                    <div class="product-thumb">
+                                                        <div class="image">
+                                                            <a data-bind="attr: { 'href': '@Url.Action("Detail", "Product")/' + Id +  Model}">
+                                                                <img style="display: inline-block; border-radius: 25px; background-color: white;" data-bind="attr : {'src' : MainImage200 }" class="img-responsive" />
+                                                            </a>
+                                                        </div>
+                                                        <div>
+                                                            <div class="caption">
+                                                                <h4><a style="font-size: 13px; line-height: 18px; text-decoration: none; display: inline-block; margin: 0 auto; padding: 0px; font-weight: bold;" data-bind="attr: { 'href': Link}, text : Model">  </a></h4>
+                                                                @*<p data-bind="text : Description" class="description" style="display: block">
+
+                                                                    </p>*@
+                                                            </div>
+                                                            <div class="button-group">
+                                                                <a style=" padding: 4px 8px; margin-bottom: 7px; font-size: 12px; height: auto; text-transform: uppercase; font-family: 'BaharFont','Open Sans', Arial, Helvetica, sans-serif; line-height: normal;" class="btn btn-primary" data-bind="attr: { 'href': Link}, if : Model"><span>مشاهده</span></a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-short">
+                                <a href="http://club.datisint.ir" class=""><i class="fa fa-id-card"></i>&nbsp;<span class="hidden-md hidden-sm">باشگاه مشتریان</span></a>
+                            </li>
+                            <li class="dropdown-short">
+                                <a href="@Url.Action("Index", "Projects")" class="dropdown-toggle"><i class="fa fa-tasks"></i>&nbsp;<span class="hidden-md hidden-sm">پروژه ها</span></a>
+                                <div class="dropdown-menu">
+
+                                </div>
+                            </li>
+
+                            <li class="dropdown-short">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-wrench"></i>&nbsp;<span class="hidden-md hidden-sm">خدمات پس از فروش</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <!-- <li style="text-align: right;"><a href="@Url.Action("GarrantyStatus", "AfterSaleServices")">مشاهده وضعیت گارانتی</a></li> -->
+                                    <li style="text-align: right;"><a href="http://cs.datisint.ir/home/track">مشاهده وضعیت کالای تعمیری</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("TermsOfGarranty", "AfterSaleServices")">شرایط گارانتی</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("ProductReturn", "AfterSaleServices")">چگونگی ارجاع کالا</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="http://cs.datisint.ir/">فرم تعمیرات</a></li>
+                                    <!-- <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "SerialNumber")">فرم ثبت شماره سریال</a></li> -->
+                                </ul>
+                            </li>
+                            <li class="dropdown-short">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-support"></i>&nbsp;<span class="hidden-md hidden-sm">پشتیبانی و تبلیغات</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Article")">مقالات</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "ImageGallery")">گالری تصاویر</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "VideoGallery")">گالری ویدئو</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Brochure")">بروشور</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Faq")">پرسش های متداول</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Application")">نرم افزارهای کاربردی</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Technology")">تکنولوژی ها</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-short">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-sitemap"></i>&nbsp;<span class="hidden-md hidden-sm">نمایندگان</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Agancies")">درخواست اخذ نمایندگی</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Order")">سفارش محصول</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "RegisterProject")">ثبت پروژه</a></li>
+                                    <li class="divider no-margin"></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-full">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-video-camera"></i>&nbsp;<span class="hidden-md hidden-sm">محصولات</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <!--be div payin data-interval="true" bedim slid mishe automatic tuye mahsoolat-->
+                                        <div id="carousel-eg" class="carousel" data-ride="carousel" data-interval="false">
+                                            <div class="row">
+                                                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 divided">
+                                                    <ol class="carousel-indicators navbar-carousel-indicators h-divided">
+                                                        @*<li data-target="#carousel-eg" data-slide-to="0" class="active"><a href="javascript:void(0);" class="">Maxron</a></li>
+                                                            <li data-target="#carousel-eg" data-slide-to="1" class=""><a href="javascript:void(0);" class="">Dahua</a></li>
+                                                            <li data-target="#carousel-eg" data-slide-to="2" class=""><a href="javascript:void(0);" class="">Albatron</a></li>
+                                                            <li data-target="#carousel-eg" data-slide-to="3" class=""><a href="javascript:void(0);" class="">Optina</a></li>
+                                                            <li data-target="#carousel-eg" data-slide-to="4" class=""><a href="javascript:void(0);" class="">Surveon</a></li>*@
+                                                        @{
+                                                            int i = 0;
+                                                            string styleClass = "";
+                                                            foreach (var item in Model)
+                                                            {
+                                                                if (i == 0)
+                                                                {
+                                                                    styleClass = "active";
+                                                                }
+                                                                else
+                                                                {
+                                                                    styleClass = "";
+                                                                }
+
+                                                                <li data-target="#carousel-eg" data-slide-to="@i" class="@styleClass"><a href="javascript:void(0);" class="">@item.BrandName</a></li>
+                                                                i++;
+                                                            }
+                                                        }
+                                                    </ol>
+                                                </div>
+                                                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
+                                                    <div class="carousel-inner">
+                                                        @{
+                                                            int i4 = 0;
+                                                            string styleClass2 = "";
+                                                            foreach (var item2 in Model)
+                                                            {
+
+                                                                if (i4 == 0)
+                                                                {
+                                                                    styleClass2 = "active";
+                                                                }
+                                                                else
+                                                                {
+                                                                    styleClass2 = "";
+                                                                }
+                                                                @Html.Raw("<div class=\"item ")
+                                                                @styleClass2
+                                                                @Html.Raw("\">")
+                                                                @Html.Raw("<div class='show-grid'>")
+                                                                int i5 = 0;
+                                                                foreach (var cat in item2.Categories)
+                                                                {
+                                                                    if (i5 % 4 == 0)
+                                                                    {
+
+                                                                        @Html.Raw("<div class='row'>")
+                                                                    }
+                                                                    @Html.Raw("<div class='col-xs-3 col-sm-3 col-md-3 col-lg-3'>")
+                                                                    @Html.Raw("<ul><li class='dropdown-header'>")
+                                                                    <a style="font-size: 12px; color: #e10e4f; font-weight: bold" href="@Url.Action("Index", "Category", new {Id = cat.CatId, CategoryTitle = cat.Name.Replace(" ", "-")})">
+                                                                        @cat.Name
+                                                                    </a>
+                                                                    @Html.Raw("</li><li class=\"divider\"></li></ul>")
+
+                                                                    foreach (var item in cat.Children)
+                                                                    {
+                                                                        //if (item.Children.Count > 0)
+                                                                        // {
+
+                                                                        @Html.Raw("<ul>")
+                                                                        // }
+
+                                                                        @Html.Raw("<li>")
+                                                                        <a style="font-size: 11px;" href="@Url.Action("Index", "Category", new {Id = item.CatId, CategoryTitle = item.Name.Replace(" ", "-")})">
+                                                                            @item.Name
+                                                                        </a>
+                                                                        @Html.Raw("</li>")
+                                                                        if (item.Children.Count > 0)
+                                                                        {
+                                                                            @Html.Raw("<li class=\"divider\">")
+                                                                            ;
+                                                                        }
+                                                                        int i2 = 1;
+                                                                        foreach (var item3 in item.Children)
+                                                                        {
+                                                                            if (i2 == 1)
+                                                                            {
+                                                                                @Html.Raw("<ul>")
+                                                                            }
+                                                                            @Html.Raw("<li><a href=''>")
+                                                                            <a style="font-size: 10px;" href="@Url.Action("Index", "Category", new {Id = item3.CatId, CategoryTitle = item3.Name.Replace(" ", "-")})">
+                                                                                @item3.Name
+                                                                            </a>
+                                                                            @Html.Raw("</li>")
+                                                                            if (i2 == 1)
+                                                                            {
+                                                                                @Html.Raw("</ul>")
+                                                                                i2++;
+                                                                            }
+                                                                        }
+                                                                        if (item.Children.Count > 0)
+                                                                        {
+                                                                            @Html.Raw("</li>")
+                                                                        }
+                                                                        @Html.Raw("</ul>")
+
+                                                                    }
+
+
+                                                                    @Html.Raw("</div>")
+                                                                    if (i5 % 4 == 3 || i5 == item2.Categories.Count - 1)
+                                                                    {
+
+                                                                        @Html.Raw("</div>")
+                                                                    }
+                                                                    i5++;
+                                                                }
+                                                                @Html.Raw("</div></div>")
+
+                                                                i4++;
+                                                            }
+                                                        }
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-short">
+                                <a href="@Url.Action("Index", "Solution")" class="dropdown-toggle"><i class="fa fa fa-gears"></i>&nbsp;<span class="hidden-md hidden-sm">راهکارها</span></a>
+                            </li>
+                            <li class="dropdown-short">
+                                <a data-toggle="dropdown" href="#" class="dropdown-toggle"><i class="fa fa-group"></i>&nbsp;<span class="hidden-md hidden-sm">درباره ما</span><span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "AboutUs")">درباره داتیس</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "ContactUs")">تماس با ما</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "Career")" class="">دعوت به همکاری</a></li>
+                                    <li class="divider no-margin"></li>
+                                    <li style="text-align: right;"><a href="@Url.Action("Index", "ContactManager")">ارتباط مستقیم با مدیرعامل</a></li>
+                                </ul>
+                            </li>
+
+                        </ul>
+                        <ul class="nav navbar-nav navbar-right"></ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- <div class="triangle-up-left"></div>
+        <div class="triangle-up-right"></div> -->
+    </div>
+</header>

@@ -1,0 +1,99 @@
+﻿@model Datis.Data.LocalPasswordModel
+@{
+    ViewBag.Title = "مدیریت اکانت";
+}
+
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/owl.transitions.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/responsive.css" />
+    <style type="text/css">
+        .navbar.navbar-grey-light {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+            .navbar.navbar-grey-light .navbar-collapse {
+                background-color: transparent;
+            }
+
+            .navbar.navbar-grey-light .navbar-nav > li > a {
+                background-color: transparent;
+            }
+
+        .carousel li {
+            margin-right: 0;
+        }
+
+        .logo a.brand {
+            height: 45px;
+        }
+
+            .logo a.brand img {
+                height: 45px;
+            }
+
+        .navbar-nav > li > a > span {
+            font-size: 12px;
+        }
+
+        .logo {
+            margin-top: 0px;
+        }
+
+        .navbar {
+            margin-bottom: 3px;
+        }
+
+            .navbar.navbar-grey-light .dropdown-menu li.dropdown-header {
+                color: #e10e4f;
+            }
+
+        @@media only screen and (max-width: 991px) {
+            header .logo {
+                margin-top: 0px;
+            }
+
+            .navbar {
+                margin-bottom: 0px;
+            }
+        }
+
+        a, p, h3 {
+            font-family: 'BaharFont','Open Sans';
+        }
+
+        #cat_accordion {
+            direction: rtl;
+        }
+
+        p.description {
+            font-size: 16px;
+            font-style: normal;
+        }
+
+        .product-list .product-thumb h4 a {
+            font-size: 22px;
+        }
+
+        .field-validation-error span {
+            direction: rtl;
+            color: red;
+        }
+    </style>
+}
+
+
+@if (ViewBag.HasLocalPassword)
+{
+    @Html.Partial("_ChangePasswordPartial")
+}
+else
+{ 
+    @Html.Partial("_SetPasswordPartial")
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

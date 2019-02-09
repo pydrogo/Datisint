@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "مدیریت داتیس";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<script type="text/javascript">
+    var username = '@User.Identity.Name';
+</script>
+@Styles.Render("~/Content/themes/base/css")
+@Styles.Render("~/Content/plupload")
+@Scripts.Render("~/bundles/view/index")
+@Scripts.Render("~/bundles/util")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/jqueryui")
+<script src="~/Scripts/plupload.full.min.js"></script>
+<script src="~/Scripts/moxie.min.js"></script>
+<script src="~/Scripts/plupload.dev.js"></script>
+<script src="~/Scripts/jquery.ui.plupload.js"></script>
+

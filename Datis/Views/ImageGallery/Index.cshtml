@@ -1,0 +1,47 @@
+﻿@model List<string>
+@{
+
+    ViewBag.Title = "گالری تصاویر داتیس";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link rel='stylesheet' href='~/Content/unitegallery/css/unite-gallery.css' type='text/css' />
+    <link rel='stylesheet' href='~/Content/unitegallery/themes/default/ug-theme-default.css' type='text/css' />
+}
+<div class="container" style=" margin-top: 10px;">
+    <div class="row" style="margin-bottom: 100px; margin-top: 20px;">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 ">
+            <div id="gallery" style="display: none; margin: 0 auto;">
+                @foreach (var item in Model)
+                {
+                    var root = Url.Content("~/");
+                    var url = root + "/" + item;
+
+                    <a href="">
+                        <img src="~/@item"
+                             data-image="@item"
+                             data-description=""
+                             style="display:none" 
+                             alt=""/>
+                    </a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type='text/javascript' src="~/Content/unitegallery/js/unitegallery.min.js"></script>
+    <script type='text/javascript' src='~/Content/unitegallery/themes/tiles/ug-theme-tiles.js'></script>
+    <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+
+            jQuery("#gallery").unitegallery({
+                tiles_type: "nested"
+            });
+
+        });
+
+    </script>
+}

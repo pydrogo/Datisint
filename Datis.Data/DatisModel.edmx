@@ -1,0 +1,1347 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DatisModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Agancy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSherkatForushgah" Type="nvarchar(max)" />
+          <Property Name="NameModiramelMasool" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Ostan" Type="int" />
+          <Property Name="Shahrestan" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="15" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="15" />
+          <Property Name="RegisterDate" Type="nvarchar" MaxLength="10" />
+          <Property Name="RegisterPlace" Type="nvarchar" MaxLength="50" />
+          <Property Name="JavazOrAsasnameh" Type="nvarchar(max)" />
+          <Property Name="TedadPersonnelFanni" Type="nvarchar" MaxLength="50" />
+          <Property Name="TedadPersonnelEdari" Type="nvarchar" MaxLength="50" />
+          <Property Name="TedadPersonnelForush" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProjeAnjamDadeid" Type="nvarchar(max)" />
+          <Property Name="NamayandegBrandDashte" Type="nvarchar(max)" />
+          <Property Name="TavanayiSaliane" Type="nvarchar(max)" />
+          <Property Name="AshnayiBaPrada" Type="nvarchar(max)" />
+          <Property Name="EjareShakhsi" Type="int" />
+          <Property Name="SanadMelki" Type="bit" />
+          <Property Name="Safte" Type="bit" />
+          <Property Name="CheckeZemanat" Type="bit" />
+          <Property Name="ZemanatNamehBanki" Type="bit" />
+          <Property Name="VajhNaghd" Type="bit" />
+          <Property Name="PrintGardesh" Type="nvarchar" MaxLength="100" />
+          <Property Name="TarikheSabteDarkhast" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="BrandCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="BrandId" Type="int" />
+        </EntityType>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="LastName" Type="nvarchar(max)" />
+          <Property Name="CodeMelli" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResumeFilePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="ParentId" Type="int" />
+        </EntityType>
+        <EntityType Name="CategoryChildren">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="ChildId" Type="int" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="StateId" Type="int" />
+        </EntityType>
+        <EntityType Name="ClientsMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Subject" Type="nvarchar" MaxLength="200" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Message" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Feature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="CategoryId" Type="int" />
+        </EntityType>
+        <EntityType Name="FeatureProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="FeatureId" Type="int" />
+          <Property Name="Value" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" />
+          <Property Name="TableId" Type="int" />
+          <Property Name="ForeignId" Type="int" />
+          <Property Name="Extension" Type="varchar" MaxLength="10" />
+          <Property Name="ServerName" Type="nvarchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="FileManagerFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FileName" Type="nvarchar" MaxLength="400" />
+          <Property Name="FileExtension" Type="varchar" MaxLength="10" />
+          <Property Name="TitleOrUrl" Type="nvarchar" MaxLength="4000" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="500" />
+          <Property Name="Path" Type="nvarchar(max)" />
+          <Property Name="Type" Type="int" />
+          <Property Name="ServerName" Type="nvarchar(max)" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="TableId" Type="int" />
+          <Property Name="BrandId" Type="int" />
+          <Property Name="CategoryId" Type="int" />
+          <Property Name="ForeignId" Type="int" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="UserId" Type="int" />
+          <Property Name="Tedad" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Model" Type="nvarchar" MaxLength="100" />
+          <Property Name="BrandCategoryId" Type="int" />
+          <Property Name="FeaturesSummary" Type="nvarchar(max)" />
+          <Property Name="Description" Type="nvarchar" MaxLength="500" />
+          <Property Name="Summary" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NameSherkatForushgah" Type="nvarchar(max)" />
+          <Property Name="NameModiramelMasool" Type="nvarchar(max)" />
+          <Property Name="Email" Type="nvarchar(max)" />
+          <Property Name="Ostan" Type="int" />
+          <Property Name="Shahrestan" Type="int" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="15" />
+          <Property Name="TarikheSabteProject" Type="nvarchar" MaxLength="10" />
+          <Property Name="TarikheTakhmineEjra" Type="nvarchar" MaxLength="10" />
+          <Property Name="ProjectName" Type="nvarchar" MaxLength="10" />
+          <Property Name="OstaneProject" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShahreProject" Type="nvarchar" MaxLength="50" />
+          <Property Name="AddressProject" Type="nvarchar" MaxLength="400" />
+          <Property Name="MohandesiGhablAzForush" Type="bit" />
+          <Property Name="Ejra" Type="bit" />
+          <Property Name="NaghsheKeshi" Type="bit" />
+          <Property Name="MoshavereProject" Type="bit" />
+          <Property Name="Janamayi" Type="bit" />
+          <Property Name="Nezarat" Type="bit" />
+        </EntityType>
+        <EntityType Name="ProjectOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ProjectId" Type="int" />
+          <Property Name="OrderId" Type="int" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TamirOrMarjoo" Type="int" />
+          <Property Name="NameSherkat" Type="nvarchar" MaxLength="50" />
+          <Property Name="NameMasool" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ostan" Type="int" />
+          <Property Name="Shahrestan" Type="int" />
+          <Property Name="CodePosti" Type="nvarchar" MaxLength="10" />
+          <Property Name="Tel" Type="nvarchar" MaxLength="15" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="15" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="ModelDastgah" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShomareSerialDastgah" Type="nvarchar" MaxLength="50" />
+          <Property Name="ShomareFactor" Type="nvarchar" MaxLength="50" />
+          <Property Name="FactorDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Address" Type="nvarchar" MaxLength="200" />
+          <Property Name="Eshkal" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SerialNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SerialNumber" Type="nvarchar" MaxLength="200" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="100" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="ProductId" Type="int" />
+          <Property Name="BuyDate" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SiteContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="200" />
+          <Property Name="Article" Type="nvarchar(max)" />
+          <Property Name="ArticleType" Type="int" />
+          <Property Name="Description" Type="nvarchar" MaxLength="200" />
+          <Property Name="NewsDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Solution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="400" />
+          <Property Name="Details" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TermsOfGarranty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="100" />
+          <Property Name="Description" Type="nvarchar" MaxLength="400" />
+          <Property Name="Details" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="56" Nullable="false" />
+          <Property Name="CustomerNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="CreateDate" Type="datetime" />
+          <Property Name="ConfirmationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="IsConfirmed" Type="bit" />
+          <Property Name="LastPasswordFailureDate" Type="datetime" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="int" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordChangedDate" Type="datetime" />
+          <Property Name="PasswordSalt" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="PasswordVerificationToken" Type="nvarchar" MaxLength="128" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="ProviderUserId" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleName" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_UsersInRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="RoleId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_BrandCategory_Brand">
+          <End Role="Brand" Type="Self.Brand" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandCategory">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_BrandCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_City_State">
+          <End Role="State" Type="Self.State" Multiplicity="0..1" />
+          <End Role="City" Type="Self.City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feature_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Feature" Type="Self.Feature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Feature">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_BrandCategory">
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BrandCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_RoleId">
+          <End Role="webpages_Roles" Type="Self.webpages_Roles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="webpages_Roles">
+              <PropertyRef Name="RoleId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_UserId">
+          <End Role="UserProfile" Type="Self.UserProfile" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="webpages_UsersInRoles" Type="Self.webpages_UsersInRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="UserProfile">
+              <PropertyRef Name="UserId" />
+            </Principal>
+            <Dependent Role="webpages_UsersInRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatisModelStoreContainer">
+          <EntitySet Name="Agancy" EntityType="Self.Agancy" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Brand" EntityType="Self.Brand" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="BrandCategory" EntityType="Self.BrandCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Career" EntityType="Self.Career" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CategoryChildren" EntityType="Self.CategoryChildren" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="City" EntityType="Self.City" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ClientsMessage" EntityType="Self.ClientsMessage" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Feature" EntityType="Self.Feature" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FeatureProduct" EntityType="Self.FeatureProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="File" EntityType="Self.File" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FileManagerFile" EntityType="Self.FileManagerFile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Image" EntityType="Self.Image" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Order" EntityType="Self.Order" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Product" EntityType="Self.Product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Project" EntityType="Self.Project" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProjectOrder" EntityType="Self.ProjectOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Repair" EntityType="Self.Repair" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SerialNumber" EntityType="Self.SerialNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiteContent" EntityType="Self.SiteContent" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Solution" EntityType="Self.Solution" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="State" EntityType="Self.State" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TermsOfGarranty" EntityType="Self.TermsOfGarranty" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserProfile" EntityType="Self.UserProfile" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Membership" EntityType="Self.webpages_Membership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="Self.webpages_OAuthMembership" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_Roles" EntityType="Self.webpages_Roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="webpages_UsersInRoles" EntityType="Self.webpages_UsersInRoles" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_BrandCategory_Brand" Association="Self.FK_BrandCategory_Brand">
+            <End Role="Brand" EntitySet="Brand" />
+            <End Role="BrandCategory" EntitySet="BrandCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_BrandCategory_Category" Association="Self.FK_BrandCategory_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="BrandCategory" EntitySet="BrandCategory" />
+          </AssociationSet>
+          <AssociationSet Name="FK_City_State" Association="Self.FK_City_State">
+            <End Role="State" EntitySet="State" />
+            <End Role="City" EntitySet="City" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feature_Category" Association="Self.FK_Feature_Category">
+            <End Role="Category" EntitySet="Category" />
+            <End Role="Feature" EntitySet="Feature" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_BrandCategory" Association="Self.FK_Product_BrandCategory">
+            <End Role="BrandCategory" EntitySet="BrandCategory" />
+            <End Role="Product" EntitySet="Product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_RoleId" Association="Self.fk_RoleId">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+          <AssociationSet Name="fk_UserId" Association="Self.fk_UserId">
+            <End Role="UserProfile" EntitySet="UserProfile" />
+            <End Role="webpages_UsersInRoles" EntitySet="webpages_UsersInRoles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DatisModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="BrandCategory">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="BrandId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_BrandCategory_Category" FromRole="BrandCategory" ToRole="Category" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Product_BrandCategory" FromRole="BrandCategory" ToRole="Product" />
+          <NavigationProperty Name="Brand" Relationship="DatisModel.FK_BrandCategory_Brand" FromRole="BrandCategory" ToRole="Brand" />
+        </EntityType>
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BrandCategories" Relationship="Self.FK_BrandCategory_Category" FromRole="Category" ToRole="BrandCategory" />
+          <NavigationProperty Name="Features" Relationship="Self.FK_Feature_Category" FromRole="Category" ToRole="Feature" />
+          <Property Name="ParentId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Feature">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryId" Type="Int32" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Feature_Category" FromRole="Feature" ToRole="Category" />
+          <NavigationProperty Name="FeatureProducts" Relationship="Self.FK_FeatureProduct_Feature" FromRole="Feature" ToRole="FeatureProduct" />
+        </EntityType>
+        <EntityType Name="FeatureProduct">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="FeatureId" Type="Int32" />
+          <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Feature" Relationship="Self.FK_FeatureProduct_Feature" FromRole="FeatureProduct" ToRole="Feature" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_FeatureProduct_Product" FromRole="FeatureProduct" ToRole="Product" />
+        </EntityType>
+        <EntityType Name="File">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="TableId" Type="Int32" />
+          <Property Name="ForeignId" Type="Int32" />
+          <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="ServerName" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Model" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="BrandCategoryId" Type="Int32" />
+          <NavigationProperty Name="BrandCategory" Relationship="Self.FK_Product_BrandCategory" FromRole="Product" ToRole="BrandCategory" />
+          <NavigationProperty Name="FeatureProducts" Relationship="Self.FK_FeatureProduct_Product" FromRole="Product" ToRole="FeatureProduct" />
+          <Property Name="FeaturesSummary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BrandCategory_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandCategory">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Product_BrandCategory">
+          <End Role="BrandCategory" Type="Self.BrandCategory" Multiplicity="0..1" />
+          <End Role="Product" Type="Self.Product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="BrandCategory">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Product">
+              <PropertyRef Name="BrandCategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Feature_Category">
+          <End Role="Category" Type="Self.Category" Multiplicity="0..1" />
+          <End Role="Feature" Type="Self.Feature" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Feature">
+              <PropertyRef Name="CategoryId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeatureProduct_Feature">
+          <End Role="Feature" Type="Self.Feature" Multiplicity="0..1" />
+          <End Role="FeatureProduct" Type="Self.FeatureProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Feature">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeatureProduct">
+              <PropertyRef Name="FeatureId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_FeatureProduct_Product">
+          <End Role="Product" Type="Self.Product" Multiplicity="0..1" />
+          <End Role="FeatureProduct" Type="Self.FeatureProduct" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="FeatureProduct">
+              <PropertyRef Name="ProductId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DatisEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="BrandCategories" EntityType="Self.BrandCategory" />
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Features" EntityType="Self.Feature" />
+          <EntitySet Name="FeatureProducts" EntityType="Self.FeatureProduct" />
+          <EntitySet Name="Files" EntityType="Self.File" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <AssociationSet Name="FK_BrandCategory_Category" Association="Self.FK_BrandCategory_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="BrandCategory" EntitySet="BrandCategories" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Product_BrandCategory" Association="Self.FK_Product_BrandCategory">
+            <End Role="BrandCategory" EntitySet="BrandCategories" />
+            <End Role="Product" EntitySet="Products" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Feature_Category" Association="Self.FK_Feature_Category">
+            <End Role="Category" EntitySet="Categories" />
+            <End Role="Feature" EntitySet="Features" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeatureProduct_Feature" Association="Self.FK_FeatureProduct_Feature">
+            <End Role="Feature" EntitySet="Features" />
+            <End Role="FeatureProduct" EntitySet="FeatureProducts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_FeatureProduct_Product" Association="Self.FK_FeatureProduct_Product">
+            <End Role="Product" EntitySet="Products" />
+            <End Role="FeatureProduct" EntitySet="FeatureProducts" />
+          </AssociationSet>
+          <EntitySet Name="Brands" EntityType="DatisModel.Brand" />
+          <AssociationSet Name="FK_BrandCategory_Brand" Association="DatisModel.FK_BrandCategory_Brand">
+            <End Role="Brand" EntitySet="Brands" />
+            <End Role="BrandCategory" EntitySet="BrandCategories" />
+          </AssociationSet>
+          <EntitySet Name="CategoryChildrens" EntityType="DatisModel.CategoryChildren" />
+          <EntitySet Name="ClientsMessages" EntityType="DatisModel.ClientsMessage" />
+          <EntitySet Name="TermsOfGarranties" EntityType="DatisModel.TermsOfGarranty" />
+          <EntitySet Name="Repairs" EntityType="DatisModel.Repair" />
+          <EntitySet Name="Cities" EntityType="DatisModel.City" />
+          <EntitySet Name="States" EntityType="DatisModel.State" />
+          <AssociationSet Name="FK_City_State" Association="DatisModel.FK_City_State">
+            <End Role="State" EntitySet="States" />
+            <End Role="City" EntitySet="Cities" />
+          </AssociationSet>
+          <EntitySet Name="Careers" EntityType="DatisModel.Career" />
+          <EntitySet Name="Agancies" EntityType="DatisModel.Agancy" />
+          <EntitySet Name="Solutions" EntityType="DatisModel.Solution" />
+          <EntitySet Name="Images" EntityType="DatisModel.Image" />
+          <EntitySet Name="SerialNumbers" EntityType="DatisModel.SerialNumber" />
+          <EntitySet Name="webpages_Membership" EntityType="DatisModel.webpages_Membership" />
+          <EntitySet Name="webpages_OAuthMembership" EntityType="DatisModel.webpages_OAuthMembership" />
+          <EntitySet Name="webpages_Roles" EntityType="DatisModel.webpages_Roles" />
+          <EntitySet Name="SiteContents" EntityType="DatisModel.SiteContent" />
+          <EntitySet Name="FileManagerFiles" EntityType="DatisModel.FileManagerFile" />
+          <EntitySet Name="UserProfiles" EntityType="DatisModel.UserProfile" />
+          <AssociationSet Name="webpages_UsersInRoles" Association="DatisModel.webpages_UsersInRoles">
+            <End Role="webpages_Roles" EntitySet="webpages_Roles" />
+            <End Role="UserProfile" EntitySet="UserProfiles" />
+          </AssociationSet>
+          <EntitySet Name="Orders" EntityType="DatisModel.Order" />
+          <EntitySet Name="Projects" EntityType="DatisModel.Project" />
+          <EntitySet Name="ProjectOrders" EntityType="DatisModel.ProjectOrder" />
+          </EntityContainer>
+        <EntityType Name="Brand">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="BrandCategories" Relationship="DatisModel.FK_BrandCategory_Brand" FromRole="Brand" ToRole="BrandCategory" />
+          <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_BrandCategory_Brand">
+          <End Type="DatisModel.Brand" Role="Brand" Multiplicity="0..1" />
+          <End Type="DatisModel.BrandCategory" Role="BrandCategory" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Brand">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="BrandCategory">
+              <PropertyRef Name="BrandId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="CategoryChildren">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="ChildId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ClientsMessage">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Subject" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Message" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TermsOfGarranty">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Repair">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TamirOrMarjoo" Type="Int32" />
+          <Property Name="NameSherkat" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NameMasool" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ostan" Type="Int32" />
+          <Property Name="Shahrestan" Type="Int32" />
+          <Property Name="CodePosti" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ModelDastgah" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShomareSerialDastgah" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShomareFactor" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FactorDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Eshkal" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StateId" Type="Int32" />
+          <NavigationProperty Name="State" Relationship="DatisModel.FK_City_State" FromRole="City" ToRole="State" />
+        </EntityType>
+        <EntityType Name="State">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Cities" Relationship="DatisModel.FK_City_State" FromRole="State" ToRole="City" />
+        </EntityType>
+        <Association Name="FK_City_State">
+          <End Type="DatisModel.State" Role="State" Multiplicity="0..1" />
+          <End Type="DatisModel.City" Role="City" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="State">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="City">
+              <PropertyRef Name="StateId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Career">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CodeMelli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResumeFilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Agancy">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSherkatForushgah" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NameModiramelMasool" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ostan" Type="Int32" />
+          <Property Name="Shahrestan" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterDate" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="RegisterPlace" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="JavazOrAsasnameh" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TedadPersonnelFanni" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TedadPersonnelEdari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TedadPersonnelForush" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProjeAnjamDadeid" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NamayandegBrandDashte" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TavanayiSaliane" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AshnayiBaPrada" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="EjareShakhsi" Type="Int32" />
+          <Property Name="SanadMelki" Type="Boolean" />
+          <Property Name="Safte" Type="Boolean" />
+          <Property Name="CheckeZemanat" Type="Boolean" />
+          <Property Name="ZemanatNamehBanki" Type="Boolean" />
+          <Property Name="VajhNaghd" Type="Boolean" />
+          <Property Name="PrintGardesh" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TarikheSabteDarkhast" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Solution">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="Details" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Image">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Name="Path" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Type" Type="Int32" />
+          <Property Name="ServerName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Extension" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="TableId" Type="Int32" />
+          <Property Name="BrandId" Type="Int32" />
+          <Property Name="CategoryId" Type="Int32" />
+          <Property Name="ForeignId" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SerialNumber">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SerialNumber1" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="BuyDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="webpages_Membership">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="CreateDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="IsConfirmed" Type="Boolean" />
+          <Property Name="LastPasswordFailureDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordFailuresSinceLastSuccess" Type="Int32" Nullable="false" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordChangedDate" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationToken" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="PasswordVerificationTokenExpirationDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="webpages_OAuthMembership">
+          <Key>
+            <PropertyRef Name="Provider" />
+            <PropertyRef Name="ProviderUserId" />
+          </Key>
+          <Property Name="Provider" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderUserId" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="webpages_Roles">
+          <Key>
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleName" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="UserProfiles" Relationship="DatisModel.webpages_UsersInRoles" FromRole="webpages_Roles" ToRole="UserProfile" />
+        </EntityType>
+        <EntityType Name="SiteContent">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="Article" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ArticleType" Type="Int32" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="NewsDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="FileManagerFile">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FileName" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="FileExtension" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="TitleOrUrl" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="UserProfile">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="56" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="webpages_Roles" Relationship="DatisModel.webpages_UsersInRoles" FromRole="UserProfile" ToRole="webpages_Roles" />
+        </EntityType>
+        <Association Name="webpages_UsersInRoles">
+          <End Type="DatisModel.webpages_Roles" Role="webpages_Roles" Multiplicity="*" />
+          <End Type="DatisModel.UserProfile" Role="UserProfile" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductId" Type="Int32" />
+          <Property Name="UserId" Type="Int32" />
+          <Property Name="Tedad" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Project">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NameSherkatForushgah" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="NameModiramelMasool" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ostan" Type="Int32" />
+          <Property Name="Shahrestan" Type="Int32" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mobile" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Tel" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="TarikheSabteProject" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="TarikheTakhmineEjra" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ProjectName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="OstaneProject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ShahreProject" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AddressProject" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="MohandesiGhablAzForush" Type="Boolean" />
+          <Property Name="Ejra" Type="Boolean" />
+          <Property Name="NaghsheKeshi" Type="Boolean" />
+          <Property Name="MoshavereProject" Type="Boolean" />
+          <Property Name="Janamayi" Type="Boolean" />
+          <Property Name="Nezarat" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="ProjectOrder">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="ProjectId" Type="Int32" />
+          <Property Name="OrderId" Type="Int32" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DatisModelStoreContainer" CdmEntityContainer="DatisEntities">
+          <EntitySetMapping Name="BrandCategories">
+            <EntityTypeMapping TypeName="DatisModel.BrandCategory">
+              <MappingFragment StoreEntitySet="BrandCategory">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="DatisModel.Category">
+              <MappingFragment StoreEntitySet="Category">
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Features">
+            <EntityTypeMapping TypeName="DatisModel.Feature">
+              <MappingFragment StoreEntitySet="Feature">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FeatureProducts">
+            <EntityTypeMapping TypeName="DatisModel.FeatureProduct">
+              <MappingFragment StoreEntitySet="FeatureProduct">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="FeatureId" ColumnName="FeatureId" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Files">
+            <EntityTypeMapping TypeName="DatisModel.File">
+              <MappingFragment StoreEntitySet="File">
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="ForeignId" ColumnName="ForeignId" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="DatisModel.Product">
+              <MappingFragment StoreEntitySet="Product">
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="FeaturesSummary" ColumnName="FeaturesSummary" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="BrandCategoryId" ColumnName="BrandCategoryId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Brands">
+            <EntityTypeMapping TypeName="DatisModel.Brand">
+              <MappingFragment StoreEntitySet="Brand">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CategoryChildrens">
+            <EntityTypeMapping TypeName="DatisModel.CategoryChildren">
+              <MappingFragment StoreEntitySet="CategoryChildren">
+                <ScalarProperty Name="ChildId" ColumnName="ChildId" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ClientsMessages">
+            <EntityTypeMapping TypeName="DatisModel.ClientsMessage">
+              <MappingFragment StoreEntitySet="ClientsMessage">
+                <ScalarProperty Name="Message" ColumnName="Message" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TermsOfGarranties">
+            <EntityTypeMapping TypeName="DatisModel.TermsOfGarranty">
+              <MappingFragment StoreEntitySet="TermsOfGarranty">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Repairs">
+            <EntityTypeMapping TypeName="DatisModel.Repair">
+              <MappingFragment StoreEntitySet="Repair">
+                <ScalarProperty Name="Eshkal" ColumnName="Eshkal" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="FactorDate" ColumnName="FactorDate" />
+                <ScalarProperty Name="ShomareFactor" ColumnName="ShomareFactor" />
+                <ScalarProperty Name="ShomareSerialDastgah" ColumnName="ShomareSerialDastgah" />
+                <ScalarProperty Name="ModelDastgah" ColumnName="ModelDastgah" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="CodePosti" ColumnName="CodePosti" />
+                <ScalarProperty Name="Shahrestan" ColumnName="Shahrestan" />
+                <ScalarProperty Name="Ostan" ColumnName="Ostan" />
+                <ScalarProperty Name="NameMasool" ColumnName="NameMasool" />
+                <ScalarProperty Name="NameSherkat" ColumnName="NameSherkat" />
+                <ScalarProperty Name="TamirOrMarjoo" ColumnName="TamirOrMarjoo" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="DatisModel.City">
+              <MappingFragment StoreEntitySet="City">
+                <ScalarProperty Name="StateId" ColumnName="StateId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="States">
+            <EntityTypeMapping TypeName="DatisModel.State">
+              <MappingFragment StoreEntitySet="State">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Careers">
+            <EntityTypeMapping TypeName="DatisModel.Career">
+              <MappingFragment StoreEntitySet="Career">
+                <ScalarProperty Name="ResumeFilePath" ColumnName="ResumeFilePath" />
+                <ScalarProperty Name="CodeMelli" ColumnName="CodeMelli" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Agancies">
+            <EntityTypeMapping TypeName="DatisModel.Agancy">
+              <MappingFragment StoreEntitySet="Agancy">
+                <ScalarProperty Name="TarikheSabteDarkhast" ColumnName="TarikheSabteDarkhast" />
+                <ScalarProperty Name="PrintGardesh" ColumnName="PrintGardesh" />
+                <ScalarProperty Name="VajhNaghd" ColumnName="VajhNaghd" />
+                <ScalarProperty Name="ZemanatNamehBanki" ColumnName="ZemanatNamehBanki" />
+                <ScalarProperty Name="CheckeZemanat" ColumnName="CheckeZemanat" />
+                <ScalarProperty Name="Safte" ColumnName="Safte" />
+                <ScalarProperty Name="SanadMelki" ColumnName="SanadMelki" />
+                <ScalarProperty Name="EjareShakhsi" ColumnName="EjareShakhsi" />
+                <ScalarProperty Name="AshnayiBaPrada" ColumnName="AshnayiBaPrada" />
+                <ScalarProperty Name="TavanayiSaliane" ColumnName="TavanayiSaliane" />
+                <ScalarProperty Name="NamayandegBrandDashte" ColumnName="NamayandegBrandDashte" />
+                <ScalarProperty Name="ProjeAnjamDadeid" ColumnName="ProjeAnjamDadeid" />
+                <ScalarProperty Name="TedadPersonnelForush" ColumnName="TedadPersonnelForush" />
+                <ScalarProperty Name="TedadPersonnelEdari" ColumnName="TedadPersonnelEdari" />
+                <ScalarProperty Name="TedadPersonnelFanni" ColumnName="TedadPersonnelFanni" />
+                <ScalarProperty Name="JavazOrAsasnameh" ColumnName="JavazOrAsasnameh" />
+                <ScalarProperty Name="RegisterPlace" ColumnName="RegisterPlace" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Shahrestan" ColumnName="Shahrestan" />
+                <ScalarProperty Name="Ostan" ColumnName="Ostan" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NameModiramelMasool" ColumnName="NameModiramelMasool" />
+                <ScalarProperty Name="NameSherkatForushgah" ColumnName="NameSherkatForushgah" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Solutions">
+            <EntityTypeMapping TypeName="DatisModel.Solution">
+              <MappingFragment StoreEntitySet="Solution">
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Images">
+            <EntityTypeMapping TypeName="DatisModel.Image">
+              <MappingFragment StoreEntitySet="Image">
+                <ScalarProperty Name="ForeignId" ColumnName="ForeignId" />
+                <ScalarProperty Name="CategoryId" ColumnName="CategoryId" />
+                <ScalarProperty Name="BrandId" ColumnName="BrandId" />
+                <ScalarProperty Name="TableId" ColumnName="TableId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="ServerName" ColumnName="ServerName" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Path" ColumnName="Path" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SerialNumbers">
+            <EntityTypeMapping TypeName="DatisModel.SerialNumber">
+              <MappingFragment StoreEntitySet="SerialNumber">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="BuyDate" ColumnName="BuyDate" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="SerialNumber1" ColumnName="SerialNumber" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Membership">
+            <EntityTypeMapping TypeName="DatisModel.webpages_Membership">
+              <MappingFragment StoreEntitySet="webpages_Membership">
+                <ScalarProperty Name="PasswordVerificationTokenExpirationDate" ColumnName="PasswordVerificationTokenExpirationDate" />
+                <ScalarProperty Name="PasswordVerificationToken" ColumnName="PasswordVerificationToken" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="PasswordChangedDate" ColumnName="PasswordChangedDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="PasswordFailuresSinceLastSuccess" ColumnName="PasswordFailuresSinceLastSuccess" />
+                <ScalarProperty Name="LastPasswordFailureDate" ColumnName="LastPasswordFailureDate" />
+                <ScalarProperty Name="IsConfirmed" ColumnName="IsConfirmed" />
+                <ScalarProperty Name="ConfirmationToken" ColumnName="ConfirmationToken" />
+                <ScalarProperty Name="CreateDate" ColumnName="CreateDate" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_OAuthMembership">
+            <EntityTypeMapping TypeName="DatisModel.webpages_OAuthMembership">
+              <MappingFragment StoreEntitySet="webpages_OAuthMembership">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProviderUserId" ColumnName="ProviderUserId" />
+                <ScalarProperty Name="Provider" ColumnName="Provider" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="webpages_Roles">
+            <EntityTypeMapping TypeName="DatisModel.webpages_Roles">
+              <MappingFragment StoreEntitySet="webpages_Roles">
+                <ScalarProperty Name="RoleName" ColumnName="RoleName" />
+                <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiteContents">
+            <EntityTypeMapping TypeName="DatisModel.SiteContent">
+              <MappingFragment StoreEntitySet="SiteContent">
+                <ScalarProperty Name="NewsDate" ColumnName="NewsDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="ArticleType" ColumnName="ArticleType" />
+                <ScalarProperty Name="Article" ColumnName="Article" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FileManagerFiles">
+            <EntityTypeMapping TypeName="DatisModel.FileManagerFile">
+              <MappingFragment StoreEntitySet="FileManagerFile">
+                <ScalarProperty Name="TitleOrUrl" ColumnName="TitleOrUrl" />
+                <ScalarProperty Name="FileExtension" ColumnName="FileExtension" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserProfiles">
+            <EntityTypeMapping TypeName="DatisModel.UserProfile">
+              <MappingFragment StoreEntitySet="UserProfile">
+                <ScalarProperty Name="CustomerNo" ColumnName="CustomerNo" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="webpages_UsersInRoles" TypeName="DatisModel.webpages_UsersInRoles" StoreEntitySet="webpages_UsersInRoles">
+            <EndProperty Name="UserProfile">
+              <ScalarProperty Name="UserId" ColumnName="UserId" />
+            </EndProperty>
+            <EndProperty Name="webpages_Roles">
+              <ScalarProperty Name="RoleId" ColumnName="RoleId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="DatisModel.Order">
+              <MappingFragment StoreEntitySet="Order">
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="Tedad" ColumnName="Tedad" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ProductId" ColumnName="ProductId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Projects">
+            <EntityTypeMapping TypeName="DatisModel.Project">
+              <MappingFragment StoreEntitySet="Project">
+                <ScalarProperty Name="Nezarat" ColumnName="Nezarat" />
+                <ScalarProperty Name="Janamayi" ColumnName="Janamayi" />
+                <ScalarProperty Name="MoshavereProject" ColumnName="MoshavereProject" />
+                <ScalarProperty Name="NaghsheKeshi" ColumnName="NaghsheKeshi" />
+                <ScalarProperty Name="Ejra" ColumnName="Ejra" />
+                <ScalarProperty Name="MohandesiGhablAzForush" ColumnName="MohandesiGhablAzForush" />
+                <ScalarProperty Name="AddressProject" ColumnName="AddressProject" />
+                <ScalarProperty Name="ShahreProject" ColumnName="ShahreProject" />
+                <ScalarProperty Name="OstaneProject" ColumnName="OstaneProject" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="TarikheTakhmineEjra" ColumnName="TarikheTakhmineEjra" />
+                <ScalarProperty Name="TarikheSabteProject" ColumnName="TarikheSabteProject" />
+                <ScalarProperty Name="Tel" ColumnName="Tel" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Shahrestan" ColumnName="Shahrestan" />
+                <ScalarProperty Name="Ostan" ColumnName="Ostan" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NameModiramelMasool" ColumnName="NameModiramelMasool" />
+                <ScalarProperty Name="NameSherkatForushgah" ColumnName="NameSherkatForushgah" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProjectOrders">
+            <EntityTypeMapping TypeName="DatisModel.ProjectOrder">
+              <MappingFragment StoreEntitySet="ProjectOrder">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="OrderId" ColumnName="OrderId" />
+                <ScalarProperty Name="ProjectId" ColumnName="ProjectId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

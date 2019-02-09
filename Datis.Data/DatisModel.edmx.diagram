@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f9c662313bba4e93b1a801f0d375993e" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="DatisModel.BrandCategory" Width="1.5" PointX="3" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatisModel.Category" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatisModel.Feature" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatisModel.FeatureProduct" Width="1.5" PointX="7.5" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatisModel.File" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="DatisModel.Product" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="DatisModel.FK_BrandCategory_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DatisModel.FK_Product_BrandCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="DatisModel.FK_Feature_Category" ManuallyRouted="false" />
+        <AssociationConnector Association="DatisModel.FK_FeatureProduct_Feature" ManuallyRouted="false" />
+        <AssociationConnector Association="DatisModel.FK_FeatureProduct_Product" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="DatisModel.Brand" Width="1.5" PointX="0.75" PointY="0.875" />
+        <AssociationConnector Association="DatisModel.FK_BrandCategory_Brand" />
+        <EntityTypeShape EntityType="DatisModel.CategoryChildren" Width="1.5" PointX="8.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DatisModel.ClientsMessage" Width="1.5" PointX="10.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DatisModel.TermsOfGarranty" Width="1.5" PointX="10.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DatisModel.Repair" Width="1.5" PointX="10.375" PointY="6.75" />
+        <EntityTypeShape EntityType="DatisModel.City" Width="1.5" PointX="10.625" PointY="11.875" />
+        <EntityTypeShape EntityType="DatisModel.State" Width="1.5" PointX="8.375" PointY="12" />
+        <AssociationConnector Association="DatisModel.FK_City_State" />
+        <EntityTypeShape EntityType="DatisModel.Career" Width="1.5" PointX="0.75" PointY="12.75" />
+        <EntityTypeShape EntityType="DatisModel.Agancy" Width="1.5" PointX="12.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DatisModel.Solution" Width="1.5" PointX="3.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DatisModel.Image" Width="1.5" PointX="5.375" PointY="8.75" />
+        <EntityTypeShape EntityType="DatisModel.SerialNumber" Width="1.5" PointX="5.375" PointY="12.75" />
+        <EntityTypeShape EntityType="DatisModel.webpages_Membership" Width="1.5" PointX="13.375" PointY="11.75" />
+        <EntityTypeShape EntityType="DatisModel.webpages_OAuthMembership" Width="1.5" PointX="14.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DatisModel.webpages_Roles" Width="1.5" PointX="12.375" PointY="8.875" />
+        <EntityTypeShape EntityType="DatisModel.SiteContent" Width="1.5" PointX="0.75" PointY="9.75" />
+        <EntityTypeShape EntityType="DatisModel.FileManagerFile" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="DatisModel.UserProfile" Width="1.5" PointX="14.625" PointY="8.75" />
+        <AssociationConnector Association="DatisModel.webpages_UsersInRoles" />
+        <EntityTypeShape EntityType="DatisModel.Order" Width="1.5" PointX="14.375" PointY="3.75" />
+        <EntityTypeShape EntityType="DatisModel.Project" Width="1.5" PointX="7.375" PointY="14.75" />
+        <EntityTypeShape EntityType="DatisModel.ProjectOrder" Width="1.5" PointX="9.375" PointY="14.75" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

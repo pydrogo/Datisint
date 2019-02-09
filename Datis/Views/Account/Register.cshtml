@@ -1,0 +1,233 @@
+﻿@model Datis.Data.RegisterModel
+@{
+    ViewBag.Title = "ثبت کاربر جدید";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/responsive.css" />
+    <link type="text/css" href="~/Content/shop/css/kendo.common.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/shop/css/kendo.default.min.css" rel="stylesheet" />
+<link href="~/Content/shop/css/kendo.rtl.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/shop/css/kendo.default.mobile.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .navbar.navbar-grey-light {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+            .navbar.navbar-grey-light .navbar-collapse {
+                background-color: transparent;
+            }
+
+            .navbar.navbar-grey-light .navbar-nav > li > a {
+                background-color: transparent;
+            }
+
+        .carousel li {
+            margin-right: 0;
+        }
+
+        .logo a.brand {
+            height: 45px;
+        }
+
+            .logo a.brand img {
+                height: 45px;
+            }
+
+        .navbar-nav > li > a > span {
+            font-size: 12px;
+        }
+
+        .logo {
+            margin-top: 0px;
+        }
+
+        .navbar {
+            margin-bottom: 3px;
+        }
+
+            .navbar.navbar-grey-light .dropdown-menu li.dropdown-header {
+                color: #e10e4f;
+            }
+
+        @@media only screen and (max-width: 991px) {
+            header .logo {
+                margin-top: 0px;
+            }
+
+            .navbar {
+                margin-bottom: 0px;
+            }
+        }
+
+        a, p, h3 {
+            font-family: 'BaharFont','Open Sans';
+        }
+
+        #cat_accordion {
+            direction: rtl;
+        }
+
+        p.description {
+            font-size: 16px;
+            font-style: normal;
+        }
+
+        .product-list .product-thumb h4 a {
+            font-size: 22px;
+        }
+
+        .field-validation-error {
+            direction: rtl;
+            color: red;
+        }
+    </style>
+}
+<div class="container" style=" margin-top: 10px;">
+
+    <!-- Breadcrumb End-->
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 " style="text-align: center;margin-bottom: 100px;">
+            <h2 class="section_header fancy centered">ثبت کاربر جدید<small></small></h2>
+            <div class="container">
+                <section>
+                    <div class="row">
+                        <div class="office_address col-sm-6 col-md-4">
+                            <div class="team_member">
+                                <img src="~/Content/Theme/images/logo.png" alt="logo">
+                                <h5>شرکت پویش رایان داتیس</h5>
+                                <small>نمایندگی مانیتورهای صنعتی و تجاری LG و دوربین های مداربسته Briton</small><br>
+                                <address>
+                                    ایران تهران<br>
+                                    پاسداران خیابان هاتف اصفهانی بن بست پریسا پلاک 5
+                                    <br>
+                                </address>
+                                <abbr title="Phone">تلفن:</abbr> 22566223<br>
+                                <abbr title="Phone">تلفن:</abbr> 22768667<br>
+                                <abbr title="Phone">ایمیل:</abbr> <a href="mailto:#">info@datisint.com</a>
+                            </div>
+                        </div>
+                        <div class="contact_form col-sm-6 col-md-8">
+                            @using (Html.BeginForm())
+                            {
+                                @Html.AntiForgeryToken()
+                                @Html.ValidationSummary()
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        @Html.LabelFor(m => m.UserName)
+                                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.UserName)
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        @Html.LabelFor(m => m.Password)
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Password)
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        @Html.LabelFor(m => m.ConfirmPassword)
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                                    </div>
+                                    <div class="col-sm-12 col-md-12">
+                                        @Html.LabelFor(m => m.CustomerNo)
+                                        @Html.TextBoxFor(m => m.CustomerNo, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.CustomerNo)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    @foreach (var item in Model.Roles)
+                                    {
+                                        <div class="col-sm-4 col-md-4">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox"
+                                                           name="SelectedRoles"
+                                                           value="@item.Value" /> @item.Text
+                                                    </label>
+                                                </div>
+                                            </div>
+                                    }
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <br />
+                                        <p id="res"></p>
+                                        <input type="submit" value="ثبت" class="btn btn-primary" />
+                                    </div>
+                                </div>
+                                <div id="grid"></div>
+
+                            }
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/kendo.all.min.js"></script>
+    <script>
+        $(document)
+            .ready(function () {
+                $("#grid")
+                    .kendoGrid({
+                        dataSource: {
+                            transport: {
+                                read: "@Url.Action("GetUsers", "Account")",
+                                destroy: {
+                                    type: 'POST',
+                                    url: "@Url.Action("Disassociate", "Account")",
+                                },
+                                parameterMap: function (options, operation) {
+                                    switch (operation) {
+                                        case "read":
+                                        case "destroy":
+                                            return options;
+                                    }
+                                }
+                            },
+                            schema: {
+                                model: {
+                                    id: "Id",
+                                    fields: {
+                                        UserName: { type: "string" },
+                                        CustomerNo: { type: "string" }
+                                    }
+                                }
+                            },
+                            change: function(e) {
+                                if (e.action === "remove") {
+                                    this.sync();
+                                }
+                            },
+                            pageSize: 20,
+                            serverPaging: true,
+                            serverFiltering: true,
+                            serverSorting: true
+                        },
+                        height: 550,
+                        filterable: true,
+                        sortable: true,
+                        pageable: true,
+                        columns: [
+                            {
+                                field: "UserName",
+                                title: "نام کاربری"
+                            }, {
+                                field: "CustomerNo",
+                                title: "شماره مشتری"
+                            },
+                            { command: ["destroy"], title: "&nbsp;", width: "250px" }
+                        ],
+                        editable: true,
+                        dataBound: function (e) {
+                        }
+                    });
+            });
+    </script>
+}

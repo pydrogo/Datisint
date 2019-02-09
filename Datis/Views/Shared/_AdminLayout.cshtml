@@ -1,0 +1,27 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/extjs/resources/ext-theme-neptune/ext-theme-neptune-all-rtl.css" rel="stylesheet" />
+    <link href="~/Content/style/icon.css" rel="stylesheet" />
+    <link href="~/Content/style/Font/SiteFont.css" rel="stylesheet" />
+    <link href="~/Content/style/Structure.css" rel="stylesheet" />
+    <link href="~/Content/ckeditor/contents.css" rel="stylesheet" />
+        @Scripts.Render("~/bundles/extjs")
+    
+    <script src="~/Content/ckeditor/ckeditor.js"></script>
+    <script src="~/Content/ckeditor/styles.js"></script>
+    <script src="~/Content/ckeditor/config.js"></script>
+    <script src="~/Content/extjs/ux/form/CkEditor.js"></script>
+</head>
+<body>
+    @*<link href="~/Content/style/Structure.css" type="text/css" rel="stylesheet" />*@
+    @RenderBody()
+</body>
+</html>

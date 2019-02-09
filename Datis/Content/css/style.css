@@ -1,0 +1,721 @@
+﻿/*====================================== Base Styles ==================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html, button, input, select, textarea {
+    color: #222;
+}
+
+::-moz-selection {
+    background: #ffa1a1;
+    text-shadow: none;
+}
+
+::selection {
+    background: #ffa1a1;
+    text-shadow: none;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+}
+
+a {
+    cursor: pointer;
+}
+
+img {
+    vertical-align: middle;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+textarea {
+    resize: vertical;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+ul {
+    padding: 0;
+}
+/*====================================== Helper classes ==================================== */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden; /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+    .ir:before {
+        content: "";
+        display: block;
+        width: 0;
+        height: 150%;
+    }
+
+.clearfix:before, .clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+/*====================================== Custom Styles ==================================== */
+
+body {
+    background: #f3f6fb url(../images/bg.jpg) repeat-x top;
+}
+header {
+    background-color: #333;
+    color: #fff;
+}
+.defaultPage .container {
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.defaultPage header {
+    height: 95px;
+}
+
+.defaultPage .logo {
+    background: transparent url(../images/logo.jpg) no-repeat top left;
+    float: left;
+    margin-top: 18px;
+}
+
+    .defaultPage .logo a {
+        width: 241px;
+        height: 70px;
+        display: block;
+        cursor: default;
+    }
+
+.defaultPage .topRight {
+    width: 600px;
+    height: 93px;
+    float: right;
+}
+
+.defaultPage ul.smallMenu {
+    margin: 10px 0;
+    float: right;
+    width: 600px;
+}
+
+    .defaultPage ul.smallMenu li {
+        text-align: right;
+        list-style: none;
+        float: right;
+        padding: 0 20px;
+    }
+
+        .defaultPage ul.smallMenu li a {
+            font: normal 11px arial;
+            color: #5a5a5a;
+            text-decoration: none;
+        }
+
+            .defaultPage ul.smallMenu li a:hover {
+                color: #e01263;
+            }
+
+.defaultPage .tel {
+    font: normal 14px arial;
+    color: #5a5a5a;
+    margin-top: 4px;
+    text-align: left;
+}
+
+.defaultPage .telDiv {
+    width: 154px;
+    height: 55px;
+    float: right;
+}
+
+.defaultPage .tel span {
+    color: #d7135b;
+    letter-spacing: 2px;
+}
+
+.defaultPage .txtSearch {
+    border: solid 1px #cdcdcd;
+    width: 138px;
+    height: 20px;
+    float: left;
+    font: normal 12px arial;
+    color: #888;
+    text-align: left;
+    padding: 0 3px;
+    margin-top: 1px;
+}
+
+.defaultPage .megaMenu {
+    width: 990px;
+    margin: 0 5px;
+    height: 32px;
+    position: absolute;
+    top: 95px;
+    z-index: 999;
+}
+
+.defaultPage .slider {
+    width: 100%;
+    height: 347px;
+    margin-top: 13px;
+}
+
+.defaultPage .newsSection {
+    width: 980px;
+    height: 26px;
+    background-color: #de3376;
+    margin: 0 10px;
+    position: absolute;
+    top: 443px;
+}
+
+    .defaultPage .newsSection span {
+        font: normal 16px arial;
+        color: #fff;
+        margin: 2px 6px 0 10px;
+    }
+
+    .defaultPage .newsSection img {
+        float: left;
+        padding-top: 3px;
+    }
+
+.defaultPage #changeText {
+    float: left;
+    padding: 5px 0 0 30px;
+    font: normal 12px arial;
+    color: #fff;
+}
+
+.defaultPage .importantArticles {
+    height: 265px;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid #ECECEC;
+}
+
+    .defaultPage .importantArticles article {
+        background: #f9f9f9 url(../images/bgArticle.jpg) repeat-x top right;
+        height: 216px;
+        margin-top: 49px;
+        float: left;
+        margin-right: 5px;
+    }
+
+.defaultPage .cooperation {
+    width: 195px;
+    margin-right: 0 !important;
+}
+
+.defaultPage .products {
+    width: 195px;
+}
+
+.defaultPage .about {
+    width: 193px;
+}
+
+.defaultPage .lastproducts {
+    width: 399px;
+    padding: 30px 0;
+}
+
+    .defaultPage .lastproducts img {
+        float: left;
+    }
+
+    .defaultPage .lastproducts .txt {
+        padding: 10px 50px 0 0;
+    }
+
+    .defaultPage .lastproducts .title {
+        font: normal 22px arial;
+        color: #d70b5b;
+        letter-spacing: 2px;
+    }
+
+.defaultPage .content {
+    font: normal 13px arial;
+    color: #666;
+    text-align: left;
+    margin-top: 8px;
+}
+
+.defaultPage .lastproducts .content a.more {
+    color: #999;
+}
+
+    .defaultPage .lastproducts .content a.more:hover {
+        color: #e36c9b;
+    }
+
+.defaultPage .about .title, .defaultPage .cooperation .title, .defaultPage .products .title {
+    font: normal 15px arial;
+    color: #d70b5b;
+    letter-spacing: 2px;
+}
+
+.defaultPage .about .content, .defaultPage .cooperation .content, .defaultPage .products .content {
+    font: normal 12px arial;
+    color: #666;
+    text-align: left;
+    margin-top: 8px;
+}
+
+.defaultPage .about, .defaultPage .cooperation, .defaultPage .products {
+    padding: 15px 26px;
+}
+
+    .defaultPage .about img, .defaultPage .cooperation img, .defaultPage .products img {
+        margin-top: 5px;
+    }
+
+.defaultPage .linkSection {
+    width: 1000px;
+    background-color: #fff;
+    border: 1px solid #ECECEC;
+    height: 275px;
+}
+
+.defaultPage .links {
+    float: left;
+    width: 800px;
+    height: 180px;
+    margin: 30px 0 30px 35px;
+}
+
+.defaultPage .icons {
+    float: right;
+    width: 110px;
+    height: 180px;
+    margin: 30px 35px 30px 0;
+}
+
+    .defaultPage .icons .facebook {
+        background-position: 0 0;
+    }
+
+    .defaultPage .icons .twitter {
+        background-position: -31px 0;
+    }
+
+    .defaultPage .icons .blogger {
+        background-position: -62px 0;
+    }
+
+    .defaultPage .icons .rss {
+        background-position: -93px 0;
+    }
+
+    .defaultPage .icons .youtube {
+        background-position: -124px 0;
+    }
+
+    .defaultPage .icons .facebook:hover {
+        background-position: 0 -31px;
+    }
+
+    .defaultPage .icons .twitter:hover {
+        background-position: -31px -31px;
+    }
+
+    .defaultPage .icons .blogger:hover {
+        background-position: -62px -31px;
+    }
+
+    .defaultPage .icons .rss:hover {
+        background-position: -93px -31px;
+    }
+
+    .defaultPage .icons .youtube:hover {
+        background-position: -124px -31px;
+    }
+
+    .defaultPage .icons a {
+        width: 31px;
+        height: 31px;
+        background: url(../images/socialIcons.jpg ) left top no-repeat;
+        float: left;
+        display: inline-block;
+        margin: 1px 1px;
+    }
+
+    .defaultPage .icons li {
+        float: left;
+        display: inline-block;
+        margin: 1px 1px;
+    }
+
+.defaultPage .iconsul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.defaultPage .column {
+    width: 150px;
+    height: 180px;
+    float: left;
+    margin-left:10px;
+}
+
+    .defaultPage .column h4 {
+        font: bold 13px arial;
+        color: #d70b5b;
+        text-align: left;
+        margin-bottom: 15px;
+    }
+
+.defaultPage .ulLinks li {
+    list-style: none;
+    padding: 1px 0;
+}
+
+    .defaultPage .ulLinks li a {
+        font: normal 12px arial;
+        color: #727272;
+        text-align: left;
+    }
+
+        .defaultPage .ulLinks li a:hover {
+            color: #e36c9b;
+        }
+
+.defaultPage .txtRegister {
+    float: left;
+    margin-left: 10px;
+    border: solid 1px #cdcdcd;
+    width: 190px;
+    height: 20px;
+    float: left;
+    font: normal 12px arial;
+    color: #888;
+    text-align: left;
+    padding: 0 3px;
+}
+
+.defaultPage span {
+    font: normal 14px arial;
+    color: #888;
+    float: left;
+}
+
+.defaultPage .registerBtn {
+    width: 36px;
+    height: 20px;
+    background: url(../images/registerBtn.jpg ) left top no-repeat;
+    float: left;
+    border: none;
+    cursor: pointer;
+    margin-left: 3px;
+}
+
+.defaultPage .register {
+    width: 800px;
+    height: 30px;
+    margin-top: 28px;
+    float: left;
+}
+
+.defaultPage footer {
+    width: 100%;
+    height: 50px;
+    background: #ff1b76 url(../images/footer.jpg ) top repeat-x;
+}
+
+.defaultPage .footerLinks {
+    text-align: center;
+    margin-left: 23px;
+    height: 30px;
+    width: 950px;
+    float: left;
+}
+
+    .defaultPage .footerLinks li {
+        float: left;
+        padding: 10px 15px;
+        list-style: none;
+    }
+
+        .defaultPage .footerLinks li a {
+            color: #fff;
+            font: normal 12px arial;
+        }
+
+            .defaultPage .footerLinks li a:hover {
+                color: #ffa8ca;
+            }
+
+.defaultPage footer p {
+    text-align: left;
+    font: normal 13px arial;
+    color: #FFBBD6;
+    margin-left: 37px;
+}
+
+.main-body-container {
+    padding: 0;
+    padding-top:20px;
+    overflow: hidden;
+    width: 100%;
+    background-color: white;
+}
+
+.side-bar {
+    border-right: 1px solid lightgray;
+    width: 250px;
+    float: left;
+}
+
+.content-bar {
+    width: 710px;
+    float: right;
+    padding: 35px;
+}
+
+ul, ol {
+    text-decoration: none;
+    list-style: none;
+}
+
+
+.mw-nav > li > a {
+    width: 100%;
+    /*background-color: lightgray;*/
+    font-size: 100%;
+    padding: 0 0 0 20px;
+}
+
+.mw-nav li a {
+    display: block;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    line-height: 25px;
+    text-indent: 10px;
+    background-image: none;
+    border-bottom: none;
+    color:#999;
+    font-size: 14px;
+}
+
+    .mw-nav li a:hover {
+        background-color: #de3376;
+        color: white;
+    }
+
+    .mw-nav li a.arrow {
+    color:#666;
+    font-size: 16px;
+    }
+.arrow-pad {
+    margin-left: 20px;
+    border-left: 3px solid lightgray;
+    margin-top:0px;
+}
+
+.item-image {
+    text-align: center;
+}
+
+    .item-image img {
+        width: 150px;
+        height: 150px;
+    }
+
+.item-text img {
+    position: absolute;
+    margin: -182px 0 0 125px;
+    border-top: 1px solid #CCC;
+    border-right: 1px solid #CCC;
+}
+
+.item-title {
+    margin-top: 20px;
+    color: #de3376;
+}
+
+.item-description {
+    font-size: 14px;
+}
+
+.list-items > li {
+    float: left;
+    width: 200px;
+    border: 1px solid lightgray;
+    padding: 10px;
+    height: 250px;
+    margin: 5px;
+}
+
+.tab-specs, .tab-dimensions, .tab-downloads {
+    display: none;
+}
+
+.content-bar {
+    background-color: white;
+}
+
+.product-header {
+    border: 1px solid lightgray;
+    height: 400px;
+    overflow: hidden;
+}
+
+    .product-header .product-new {
+        width: 100px;
+        text-align: right;
+        float: right;
+    }
+
+    .product-header .product-name {
+        top: 100px;
+        left: 300px;
+        position: relative;
+        color: #F90;
+    }
+
+    .product-header .product-main-info {
+        position: relative;
+        width: 300px;
+        left: 300px;
+        top: 150px;
+        color: gray;
+    }
+
+    .product-header .photo {
+        position: relative;
+        top: -150px;
+        left: 30px;
+        width: 250px;
+    }
+
+        .product-header .photo img {
+            width: 250px;
+        }
+
+
+    .product-header .gallery {
+        width: 230px;
+        height: 50px;
+        position: relative;
+        top: -170px;
+        left: 20px;
+    }
+
+        .product-header .gallery ul {
+            width: 230px;
+            height: 50px;
+        }
+
+            .product-header .gallery ul > li {
+                width: 60px;
+                margin: 5px;
+                float: left;
+            }
+
+                .product-header .gallery ul > li > img {
+                    width: 50px;
+                    height: 50px;
+                    border: 1px solid lightgray;
+                    cursor: pointer;
+                }
+
+                    .product-header .gallery ul > li > img:hover {
+                        border: 1px solid #de3376;
+                    }
+
+.tab-info {
+    margin: 10px;
+    margin-top: 30px;
+    padding: 5px;
+}
+
+    .tab-info .tab-header {
+        margin: 5px;
+        padding: 10px;
+        border-bottom: 1px solid #de3376;
+    }
+
+        .tab-info .tab-header a {
+            padding: 10px;
+        }
+
+            .tab-info .tab-header a.selected {
+                border-bottom: 5px solid #de3376;
+                color: #de3376;
+            }
+
+            .tab-info .tab-header a:hover {
+                border-bottom: 5px solid #eaa8c2;
+                color: #eaa8c2;
+            }
+
+    .tab-info .tabs {
+        padding: 20px;
+        color:gray;
+        font-size:14px;
+    }
+
+        .tab-info .tabs h3 {
+            color: #761a3e;
+            padding:30px 10px 10px 0;
+        }
+
+.tabs table {
+    width:100%;
+}
+
+.tabs table thead tr{
+    background-color:#de3376 !important;
+    color:white;
+}
+    .tabs table thead tr td {
+        padding:10px;
+    }
+.tabs table tr:nth-child(even) {
+    background-color:#eee;
+}
+
+.tabs table tr:nth-child(odd) {
+    background-color:#fff;
+}
+
+.puulleft {
+    float:left;
+}
+.side-bar h2 {
+    margin-left:10px;
+}

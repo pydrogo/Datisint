@@ -1,0 +1,91 @@
+﻿@using Datis
+@model List<Datis.Models.VideoVM>
+@{
+    ViewBag.Title = "گالری ویدئو داتیس";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link rel='stylesheet' href='~/Content/unitegallery/css/unite-gallery.css' type='text/css' />
+    <link rel='stylesheet' href='~/Content/unitegallery/themes/default/ug-theme-default.css' type='text/css' />
+
+    <style type="text/css">
+        .ug-textpanel-title {
+            font-family: "BaharFont";
+        }
+    </style>
+}
+@section header{
+    <div class="full_page_photo no_photo">
+        @Html.Raw(Helpers.GetHeaderIamge("Solution"))
+        <div class="container">
+            <div class="hgroup">
+                <div class="hgroup_title animated bounceInUp skincolored">
+                    <div class="container">
+                        <h1>ویدئو ها</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="container" style=" margin-top: 10px;">
+    <div class="row" style="margin-bottom: 100px; margin-top: 20px;">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 ">
+            <div id="gallery" style="display: none; margin: 0 auto;">
+                @foreach (var item in Model)
+                {
+                    <!-- <img alt="@(item.TitleOrUrl ?? "داتیس")"
+                         src="@item.Image"
+                         data-type="html5video"
+                         data-image="@item.Image"
+                         data-videomp4="@item.Video"
+                         data-description="@(item.TitleOrUrl ?? "داتیس")"
+                         data-title="@(item.TitleOrUrl ?? "داتیس")"> -->
+                    <img src="@item.Image"
+                         data-type="html5video"
+                         data-image="@item.Image"
+                         data-videomp4="@item.Video"
+                         data-description="@(item.TitleOrUrl ?? "داتیس")"
+                         data-title="@(item.TitleOrUrl ?? "داتیس")"
+                         alt="@(item.TitleOrUrl ?? "داتیس")">
+
+                }
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type='text/javascript' src="~/Content/unitegallery/js/unitegallery.js"></script>
+    <script type='text/javascript' src='~/Content/unitegallery/themes/tilesgrid/ug-theme-tilesgrid.js'></script>
+    <script type="text/javascript">
+
+        jQuery(document).ready(function () {
+            jQuery("#gallery").unitegallery({
+                gallery_theme: "tilesgrid",
+                tile_enable_border: true,
+                tile_border_color: "#ffffff",
+                tile_enable_outline: true,
+                tile_outline_color: "#b6b6b6",
+                tile_shadow_color: "#8B8B8B",
+                tile_overlay_opacity: 0.6,
+                tile_enable_image_effect: true,
+                tile_image_effect_type: "blur",
+                tile_image_effect_reverse: true,
+                tile_enable_textpanel: true,
+                tile_textpanel_bg_color: "#a50034",
+                tile_textpanel_bg_opacity: 0.9,
+                tile_textpanel_title_text_align: "center",
+                lightbox_textpanel_enable_title: false,
+                lightbox_textpanel_enable_description: true,
+                lightbox_textpanel_desc_color: "#a50034",
+                tiles_col_width: 200,
+                tile_textpanel_always_on: true,
+                tiles_space_between_cols: 30
+            });
+        });
+
+    </script>
+}
+
+
+

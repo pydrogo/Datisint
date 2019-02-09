@@ -1,0 +1,60 @@
+﻿Ext.define('prada.page.models.Dvr', {
+    extend: 'Ext.data.Model',
+    fields: [
+        { name: 'Id', type: 'int' },
+        { name: 'Name', type: 'string' },
+        { name: 'Model', type: 'string' },
+        { name: 'Overview' },
+        { name: 'Description' },
+        { name: 'Price' },
+        { name: 'ShowPrice' },
+
+        { name: 'MainProcessor' },
+      { name: 'OperatingSystem' },
+      { name: 'Input' },
+      { name: 'Standard' },
+      { name: 'AudioInput' },
+      { name: 'AudioOutput' },
+      { name: 'TwoWayTalk' },
+      { name: 'Interface' },
+      { name: 'Resolution' },
+      { name: 'DisplaySplit' },
+      { name: 'PrivacyMasking' },
+      { name: 'OSD' },
+      { name: 'VideoAudioCompression' },
+      { name: 'RecordingResolution' },
+      { name: 'RecordRateMainStream' },
+      { name: 'RecordRateExtraStream' },
+      { name: 'BitRate' },
+    { name: 'IsNew' },
+      { name: 'RecordMode' },
+      { name: 'RecordInterval' },
+      { name: 'TriggerEvents' },
+      { name: 'VideoDetection' },
+      { name: 'AlarmInput' },
+      { name: 'AlarmOutput' },
+      { name: 'SyncPlayback' },
+      { name: 'SearchMode' },
+      { name: 'PlaybackFunctions' },
+      { name: 'BackupMode' },
+      { name: 'Ethernet' },
+      { name: 'NetworkFunctions' },
+      { name: 'MaxUserAccess' },
+      { name: 'SmartPhone' },
+      { name: 'InternalHDD' },
+      { name: 'ExternalHDD' },
+      { name: 'USBInterface' },
+      { name: 'RS232' },
+      { name: 'RS485' },
+      { name: 'PowerSupply' },
+      { name: 'PowerConsumption' },
+      { name: 'WorkingEnvironment' },
+      { name: 'DimensionWDH' },
+      { name: 'Weight' }
+        
+        
+
+
+
+    ]
+});

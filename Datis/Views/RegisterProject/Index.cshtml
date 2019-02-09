@@ -1,0 +1,533 @@
+﻿@using Datis
+@model Datis.Data.ProjectMetadata
+@{
+    ViewBag.Title = "ثبت پروژه داتیس";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section styles{
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/stylesheet.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/shop/css/responsive.css" />
+    <link href="~/Content/shop/css/kendo.common.min.css" rel="stylesheet" />
+    <link href="~/Content/shop/css/kendo.common-bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/shop/css/kendo.nova.min.css" rel="stylesheet" />
+    <link href="~/Content/shop/css/kendo.rtl.min.css" rel="stylesheet" />
+    <link type="text/css" href="~/Content/shop/css/kendo.nova.mobile.min.css" rel="stylesheet" />
+    <style type="text/css">
+        .navbar.navbar-grey-light {
+            background-color: transparent;
+            border-color: transparent;
+        }
+
+            .navbar.navbar-grey-light .navbar-collapse {
+                background-color: transparent;
+            }
+
+            .navbar.navbar-grey-light .navbar-nav > li > a {
+                background-color: transparent;
+            }
+
+        .carousel li {
+            margin-right: 0;
+        }
+
+        .logo a.brand {
+            height: 45px;
+        }
+
+            .logo a.brand img {
+                height: 45px;
+            }
+
+        .navbar-nav > li > a > span {
+            font-size: 12px;
+        }
+
+        .logo {
+            margin-top: 0px;
+        }
+
+        .navbar {
+            margin-bottom: 3px;
+        }
+
+            .navbar.navbar-grey-light .dropdown-menu li.dropdown-header {
+                color: #e10e4f;
+            }
+
+        @@media only screen and (max-width: 991px) {
+            header .logo {
+                margin-top: 0px;
+            }
+
+            .navbar {
+                margin-bottom: 0px;
+            }
+        }
+
+        a, p, h3 {
+            font-family: 'BaharFont','Open Sans';
+        }
+
+        #cat_accordion {
+            direction: rtl;
+        }
+
+        p.description {
+            font-size: 16px;
+            font-style: normal;
+        }
+
+        .product-list .product-thumb h4 a {
+            font-size: 22px;
+        }
+
+        .field-validation-error {
+            direction: rtl;
+            color: red;
+        }
+
+        .validation-summary-errors ul {
+            list-style: none;
+        }
+
+        .ui-menu {
+            background-color: white;
+        }
+
+        label {
+            direction: rtl;
+        }
+    </style>
+}
+@section header{
+    <div class="full_page_photo no_photo">
+        @Html.Raw(Helpers.GetHeaderIamge("Agancies"))
+        <div class="container">
+            <div class="hgroup">
+                <div class="hgroup_title animated bounceInUp skincolored">
+                    <div class="container">
+                        <h1>ثبت پروژه</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<div class="container" style=" margin-top: 10px;">
+    <!-- Breadcrumb Start-->
+    <ul class="breadcrumb" style="direction:rtl;">
+        <li itemscope itemtype=""><a href="@Url.Action("Index", "Home")" itemprop="url"><span itemprop="title"><i class="fa fa-home"></i></span></a></li>
+        <li itemscope itemtype=""><a href="@Url.Action("Index", "RegisterProject")" itemprop="url"><span itemprop="title">ثبت پروژه</span></a></li>
+    </ul>
+    <!-- Breadcrumb End-->
+    <div class="row">
+        <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 " style="text-align: center;margin-bottom: 100px;">
+            <h2 class="section_header fancy centered">فرم پروژه<small></small></h2>
+            <div class="container">
+                <section>
+                    <div class="row">
+                        <div class="office_address col-sm-6 col-md-4">
+                            <div class="team_member">
+                                <img src="~/Content/Theme/images/logo.png" alt="logo">
+                                <h5>شرکت پویش رایان داتیس</h5>
+                                <small>فرم اخذ نمایندگی</small><br>
+                                <p>
+                                    داتیس نمایندگی رسمی مانیتورهای صنعتی و تجاری LG و نمایندگی انحصاری دوربین های مدار بسته Briton
+                                    از کلیه شرکت های فعال در زمینه نصب و فروش تجهیزات مداربسته و مانیتورهای صنعتی و تجاری برای اخذ نمایندگی دعوت به عمل می آورد.
+                                    همکاران و شرکت هایی که تمایل به همکاری و اخذ نمایندگی محصولات را دارند میتوانند در 2 گروه عاملین پخش محصولات و شرکت های مجری پروژه های سیستم های مداربسته اقدام به اخذ نمایندگی نموده و از مزایای ویژه برای خرید محصولات بهره مند گردند.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="contact_form col-sm-6 col-md-8">
+                            @using (Html.BeginForm("Index", "RegisterProject", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                <div class="row">
+                                    @if (ViewBag.Success != null)
+                                    {
+                                        <p class="alert alert-success" id="successMessage">@ViewBag.Success</p>
+                                    }
+                                    else if (ViewBag.Error != null)
+                                    {
+                                        <p class="alert alert-danger">@ViewBag.Error</p>
+
+                                    }
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.NameSherkatForushgah)
+                                        @Html.TextBoxFor(m => m.NameSherkatForushgah, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.NameSherkatForushgah)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.NameModiramelMasool)
+                                        @Html.TextBoxFor(m => m.NameModiramelMasool, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.NameModiramelMasool)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.Email)
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Email)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.Ostan)
+                                        @Html.DropDownListFor(m => m.Ostan, (List<SelectListItem>)ViewBag.states, "انتخاب استان", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Ostan)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.Shahrestan)
+                                        @Html.DropDownListFor(m => m.Shahrestan, new List<SelectListItem>(), "انتخاب شهر", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Shahrestan)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        @Html.LabelFor(m => m.Address)
+                                        @Html.TextBoxFor(m => m.Address, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Address)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.Mobile)
+                                        @Html.TextBoxFor(m => m.Mobile, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Mobile)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.Tel)
+                                        @Html.TextBoxFor(m => m.Tel, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.Tel)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.TarikheSabteProject)
+                                        @Html.TextBoxFor(m => m.TarikheSabteProject, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.TarikheSabteProject)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.TarikheTakhmineEjra)
+                                        @Html.TextBoxFor(m => m.TarikheTakhmineEjra, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.TarikheTakhmineEjra)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.ProjectName)
+                                        @Html.TextBoxFor(m => m.ProjectName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.ProjectName)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.OstaneProject)
+                                        @Html.TextBoxFor(m => m.OstaneProject, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.OstaneProject)
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.ShahreProject)
+                                        @Html.TextBoxFor(m => m.ShahreProject, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.ShahreProject)
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        @Html.LabelFor(m => m.AddressProject)
+                                        @Html.TextBoxFor(m => m.AddressProject, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(m => m.AddressProject)
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-bottom:0px">
+                                    <div class="col-sm-12 col-md-12" style="text-align:right;direction:rtl">
+                                        خدمات مورد نیاز پروژه
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:0px">
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @Html.CheckBoxFor(m => m.MohandesiGhablAzForush, new { @class = "" })
+                                                @Html.DisplayNameFor(m => m.MohandesiGhablAzForush)
+                                                @Html.ValidationMessageFor(m => m.MohandesiGhablAzForush)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @Html.CheckBoxFor(m => m.Ejra, new { @class = "" })
+                                                @Html.DisplayNameFor(m => m.Ejra)
+                                                @Html.ValidationMessageFor(m => m.Ejra)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @Html.CheckBoxFor(m => m.NaghsheKeshi, new { @class = "" })
+                                                @Html.DisplayNameFor(m => m.NaghsheKeshi)
+                                                @Html.ValidationMessageFor(m => m.NaghsheKeshi)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @Html.CheckBoxFor(m => m.MoshavereProject, new { @class = "" })
+                                                @Html.DisplayNameFor(m => m.MoshavereProject)
+                                                @Html.ValidationMessageFor(m => m.MoshavereProject)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @Html.CheckBoxFor(m => m.Janamayi, new { @class = "" })
+                                                @Html.DisplayNameFor(m => m.Janamayi)
+                                                @Html.ValidationMessageFor(m => m.Janamayi)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 col-md-4">
+                                        <div class="checkbox">
+                                            <label>
+                                                @Html.CheckBoxFor(m => m.Nezarat, new { @class = "" })
+                                                @Html.DisplayNameFor(m => m.Nezarat)
+                                                @Html.ValidationMessageFor(m => m.Nezarat)
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-bottom:0px">
+                                    <div class="col-sm-12 col-md-12" style="text-align:right;direction:rtl">
+                                        محصولات مورد نیاز پروژه
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-4 col-md-4">
+                                        <label style=" direction: rtl;">محصول: </label>
+                                        <input name="serialNumber" id="product" class="form-control" type="text" value="">
+                                    </div>
+
+                                    <div class="col-sm-4 col-md-4">
+                                        <label style=" direction: rtl;">تعداد: </label>
+                                        <input name="Tedad" id="Tedad" class="form-control" type="text" value="">
+                                    </div>
+                                    <div class="col-sm-4 col-md-4" style=" margin-top: 25px; float: right;">
+                                        <a id="submit_btn" class="btn btn-primary">افزودن</a> <span id="notice" class="alert alert-warning alert-dismissable hidden" style="margin-left:20px;"></span>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div id="res"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div class="k-rtl" id="grid"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-6 col-md-6">
+                                        <label>کد امنیتی</label>
+                                        <input name="captcha" id="Captcha" class="form-control" type="text" value="">
+                                    </div>
+                                    <div class="col-sm-6 col-md-6">
+                                        <div>
+                                            <label>حاصل جمع؟</label>
+                                            <div style="width: 100%; clear: both; text-align: right;">
+                                                <a class="ref"><i class="fa fa-refresh" aria-hidden="true" style="vertical-align: middle; height: 30px; cursor: pointer"></i></a>
+                                                <img alt="Captcha" id="imgcpatcha" src="@Url.Action("CaptchaImage", "Captcha", new {prefix = "RegProject"})" style="" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <button class="btn btn-primary">ارسال درخواست</button>
+                                        @*<a id="submit_btn" class="btn btn-primary" name="submit">ارسال درخواست</a>*@ <span id="notice" class="alert alert-warning alert-dismissable hidden" style="margin-left: 20px;"></span>
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script type="text/javascript" src="~/Scripts/jquery.maskedinput.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/kendo.all.min.js"></script>
+    <script>
+        $(function() {
+            $('.ref')
+                .click(function() {
+                    var BASE_URL = '@Url.Content("~/")';
+                    var random = new Date();
+                    $.ajax({
+                            url: '@Url.Action("CaptchaImage", "Captcha")',
+                            type: 'GET',
+                            data:
+                            {
+                                prefix: "RegProject"
+                            },
+                        })
+                        .done(function(functionResult) {
+                            $("#imgcpatcha").attr("src", BASE_URL + "Captcha/CaptchaImage?prefix=RegProject");
+                        });
+                });
+
+            $('#TarikheSabteProject').mask("9999/99/99");
+            $('#TarikheTakhmineEjra').mask("9999/99/99");
+
+
+            $('#submit_btn')
+                .click(function() {
+                    var BASE_URL = '@Url.Content("~/")';
+                    $.ajax({
+                        url: '@Url.Action("Add", "RegisterProject")',
+                        type: 'POST',
+                        dataType: 'json',
+                        data:
+                        {
+                            ProductId: $('#product').attr('data-val'),
+                            Tedad: $('#Tedad').val(),
+                            ProjectId: '@Model.Id'
+                        },
+                        success: function(data) {
+                            if (data.success) {
+                                //$('#res').html(data.message);
+                                //$('#res').css('color', 'green');
+                                $("#grid").data("kendoGrid").dataSource.read();
+                                $('#product').val("");
+                                $('#product').attr('data-val', "");
+                                $('#Tedad').val("");
+
+                            } else {
+                                $('#res').html(data.message);
+                                $('#res').css('color', 'red');
+                            }
+
+                        },
+                        error: function(xhr, status, error) {
+                        }
+                    });
+                });
+            $("#product")
+                .autocomplete({
+                    source: function(request, response) {
+                        $.ajax({
+                            url: '@Url.Action("ProductLookup", "SerialNumber")',
+                            type: "POST",
+                            dataType: "json",
+                            data: { term: request.term },
+                            success: function(data) {
+                                response($.map(data,
+                                    function(item) {
+                                        return { label: item.Text, value: item.Value };
+                                    }));
+
+                            }
+                        });
+                    },
+                    select: function(event, ui) {
+                        event.preventDefault();
+                        $(this).val(ui.item.label);
+                        $(this).attr('data-val', ui.item.value);
+                    },
+                    change: function(event, ui) {
+                        if (!ui.item) {
+                            $(this).val("");
+                            $(this).attr('data-val', "");
+                        }
+                    }
+                });
+            $("#grid")
+                .kendoGrid({
+                    dataSource: {
+                        transport: {
+                            read: "@Url.Action("GetProjectOrder", "RegisterProject", new {ProjectId = Model.Id})",
+                            destroy: {
+                                type: 'POST',
+                                url:
+                                    "@Url.Action("RemoveProjectOrder", "RegisterProject", new {ProjectId = Model.Id})",
+                            },
+                            parameterMap: function(options, operation) {
+                                switch (operation) {
+                                case "read":
+                                case "destroy":
+                                    return options;
+                                }
+                            }
+                        },
+                        schema: {
+                            model: {
+                                id: "Id",
+                                fields: {
+                                    ProductName: { type: "string" },
+                                    Tedad: { type: "string" }
+                                }
+                            }
+                        },
+                        change: function(e) {
+                            if (e.action === "remove") {
+                                this.sync();
+                            }
+                        },
+                        pageSize: 20,
+                        serverPaging: true,
+                        serverFiltering: false,
+                        serverSorting: false
+                    },
+                    height: 250,
+                    filterable: true,
+                    sortable: true,
+                    pageable: true,
+                    columns: [
+                        {
+                            field: "ProductName",
+                            title: "نام محصول"
+                        }, {
+                            field: "Tedad",
+                            title: "تعداد"
+                        },
+                        { command: [{ name: "destroy", text: "حذف" }], title: "عملیات", width: "250px" }
+                    ],
+                    editable: true,
+                    dataBound: function(e) {
+                    }
+                });
+        });
+
+        var url = '@Url.Action("CityLookup", "AfterSaleServices")';
+        var cities = $('#Shahrestan'); // cache it
+        $("#Ostan")
+            .change(function() {
+                var id = $(this).val(); // Use $(this) so you don't traverse the DOM again
+                $.getJSON(url,
+                    { stateId: id },
+                    function(response) {
+                        cities.empty(); // remove any existing options
+                        var selected;
+                        $.each(response,
+                            function(index, item) {
+
+                                if (index == 0)
+                                    selected = item.id;
+                                cities.append('<option value="' + item.Id + '">' + item.Title + '</option>');
+                            });
+                        cities.val(selected);
+                    });
+            });
+
+    </script>
+}
