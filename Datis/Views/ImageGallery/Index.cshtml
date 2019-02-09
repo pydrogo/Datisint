@@ -11,7 +11,7 @@
 <div class="container" style=" margin-top: 10px;">
     <div class="row" style="margin-bottom: 100px; margin-top: 20px;">
         <div class="col-md-12 col-lg-12 col-xs-12 col-sm-12 ">
-            <div id="gallery" style="display: none; margin: 0 auto;">
+            <div id="gallery" style="display: none; margin: 0 auto;height:auto;">
                 @foreach (var item in Model)
                 {
                     var root = Url.Content("~/");
@@ -38,7 +38,8 @@
         jQuery(document).ready(function () {
 
             jQuery("#gallery").unitegallery({
-                tiles_type: "nested"
+                tiles_type: "nested",
+                theme_enable_preloader:false
             });
 
         });
